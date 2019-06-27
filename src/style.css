@@ -1,0 +1,16 @@
+.formLogin{
+  background-color:#f8f8f8;
+  /*#99c799;*/
+  padding: 10px;
+  margin: 0 auto;
+  width: 300px;
+}
+
+.viewLogin{
+  background-color: white;
+}
+
+.buttonI{
+  background-color: #99c799;
+}
+
