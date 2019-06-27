@@ -1,0 +1,70 @@
+html {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.logo {
+	width: 100%;
+	max-width: 199px;
+	margin: 0 auto;
+	padding-top: 58px;
+  margin-bottom: 20px;
+  align-content: center;
+  display: block;
+}
+.viewLogin{
+    display: block;
+	  margin: 102px auto;
+    background-color: #F7F7F7;
+    width: 684px;
+    justify-content: center;
+}
+
+.formLogin{
+  padding: 16px 63px 48px 62px;
+}
+
+/* Formulario */
+label {
+font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 25px;
+}
+input:not([type="bottom"])
+ {
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+	display: block;
+	width: 100%;
+	min-height: 50px;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	text-align: center;
+	font-size: 16px;
+	border: 0 solid #f2f3f9;
+	outline: transparent;
+}
+.buttonLogin{
+  color: #ffffff;
+  background-color: #3897F0;
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1px;
+  border-radius: 5px;
+  margin-bottom: 98px;
+  padding: 20px 50px;
+  display: inline-block;
+  text-align: center;
+  align: middle;
+  border: none;
+  display: block;
+  flex: 0 0 100%;
+  outline: transparent;
+}
+  
+  
