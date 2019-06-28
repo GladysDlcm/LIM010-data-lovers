@@ -34,7 +34,7 @@ const passwordLogin=password.value;
         }
     else{
         cont=cont+1;
-        console.log("ERROR");
+        console.log("CLAVE INCORRECTA");
         msgFail.innerHTML="Clave incorrecta";
         }
 });
