@@ -9,7 +9,7 @@ body {
   font-style: normal;
   font-weight: normal;
   color: #666666;
-  background-image: url(img/bg-1.jpg);
+  margin: 0;
 }
 .center {
   max-width: 460px;
@@ -23,15 +23,16 @@ body {
   display: flex;
 }
 .bgLogin{
+  background-image: url(img/bg-1.jpg);
   background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
+	background-repeat: repeat;
 }
 .viewLogin{
     display: block;
-	  margin: 102px auto;
+	  margin: 0px auto 10px auto;
     width: 516px;
-    height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 50px;
 }
 .formLogin{
   padding: 16px 63px 48px 62px;
@@ -67,6 +68,10 @@ input:not([type="bottom"])
   outline: transparent;
   cursor: pointer;
 }
+
+.msgFail{
+
+}
 .btnLink1{
   font-size: 14px;
   font-weight: 800;
@@ -78,12 +83,20 @@ input:not([type="bottom"])
   display: flex;
   cursor: pointer;
 }
-span {
-  font-size: 16px;
-  display: flex;
-  cursor: pointer;
-}
 .hide {
 	display: none;
+}
+
+.show{
+  display:block;
+}
+
+.bgPokemon{
+  background-image: url(img/pokemon.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  
 }
 

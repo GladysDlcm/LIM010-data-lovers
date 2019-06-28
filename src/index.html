@@ -4,32 +4,40 @@
     <meta charset="utf-8">
     <title>POKEDATA</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <!--<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <header></header>
     <main>
-      <section class="bgLogin">
+      <section id="viewLogin1">
+        <div class="bgLogin">
         <div class="viewLogin center">
           <form class="formLogin center">
             <img class="logo" src="img/poke-data-logo.png" alt="Logo">
             <div class="center">
               <label>Correo electrónico</label>
-                <input type="text">
+                <input type="text" id="user"/>
                 <label>Contraseña</label>
-                <input type="text">
-              <a class="btnLink1">¿Olvidaste tu contraseña?</a>
+                <input type="password" id="password"/>
+                <p id="msgFail" class="msgFail"></p>
+                <a class="btnLink1">¿Olvidaste tu contraseña?</a>
             </div>
             <div class="center">
               <button type="submit" class="buttonLogin center" id="buttonLogin" >Ingresa</button>
-              <span class="center">¿No tienes una cuenta? <a class="btnLink2 center">&nbsp; Registrate</a></span> 
+              <a class="btnLink2 center">¿No tienes una cuenta? Registrate</a>
             </div>
           </form>
         </div>
+        </div>
       </section>
-      <section>
+      <section class="hide" id="viewPokemon"> 
+          <div class="">
+            <form>
+               <h1>BIENVENIDO A POKEDATA</h1>
+            </form>
+          </div>
       </section>
     </main>
     <footer></footer>
