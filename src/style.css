@@ -81,3 +81,6 @@ input:not([type="bottom"])
 	display: none;
 }
 
+.show{
+  display:block;
+}

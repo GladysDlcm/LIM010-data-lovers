@@ -9,4 +9,4 @@ const example = () => {
 
 window.example = example;
 
-console.log(POKEMON.pokemon[1].img);
+
