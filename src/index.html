@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <title>POKEDATA</title>
     <link rel="stylesheet" href="style.css" />
     <!--<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1d89626b25.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <header></header>
     <main>
       <section id="viewLogin1">
         <div class="bgLogin">
@@ -18,9 +19,9 @@
             <img class="logo" src="img/poke-data-logo.png" alt="Logo">
             <div class="center">
               <label>Correo electrónico</label>
-                <input type="text" id="user"/>
+                <input type="text" id="user" value="LABORATORIA"/>
                 <label>Contraseña</label>
-                <input type="password" id="password"/>
+                <input type="password" id="password" value="LABORATORIA"/>
                 <p id="msgFail" class="msgFail"></p>
                 <a class="btnLink1">¿Olvidaste tu contraseña?</a>
             </div>
@@ -33,10 +34,71 @@
         </div>
       </section>
       <section class="hide" id="viewPokemon"> 
-          <div class="">
-            <form>
-               <h1>BIENVENIDO A POKEDATA</h1>
-            </form>
+          <div class="bgHome">
+            <header class="site-header">
+              <div></div>
+              <img class="logo" src="img/poke-data-logo.png" alt="Logo">
+              <div>
+                  <h1 class="center-text">¡Toda la <strong>Poke data</strong> que necesitas la encuentras aquí!</h1>
+                  <h2 class="center-text">¡Bienvenido entrenador Pokémon!</h2>
+              </div>
+            </header>
+            <div class="menu">
+              <i class="fas fa-user-circle"></i>
+              <h3 id="user">LABORATORIA</h3>
+              <input class="search" type="search" placeholder="Buscar Pokémons">
+            </div>
+            <div class="container-pokemon">
+                <select class="dropdown" id="">
+                    <option value="" disabled selected>Tipo</option>
+                    <option value="">Acero</option>
+                    <option value="">Agua</option>
+                    <option value="">Bicho</option>
+                    <option value="">Dragón</option>
+                    <option value="">Eléctrico</option>
+                    <option value="">Fantasma</option>
+                    <option value="">Fuego</option>
+                    <option value="">Hada</option>
+                    <option value="">Hielo</option>
+                    <option value="">Lucha</option>
+                    <option value="">Normal</option>
+                    <option value="">Planta</option>
+                    <option value="">Psíquico</option>
+                    <option value="">Roca</option>
+                    <option value="">Siniestro</option>
+                    <option value="">Tierra</option>
+                    <option value="">Veneno</option>
+                    <option value="">Volador</option>
+                </select>
+                <select class="dropdown" id="">
+                    <option value="" disabled selected>Debilidad</option>
+                    <option value="">Acero</option>
+                    <option value="">Agua</option>
+                    <option value="">Bicho</option>
+                    <option value="">Dragón</option>
+                    <option value="">Eléctrico</option>
+                    <option value="">Fantasma</option>
+                    <option value="">Fuego</option>
+                    <option value="">Hada</option>
+                    <option value="">Hielo</option>
+                    <option value="">Lucha</option>
+                    <option value="">Normal</option>
+                    <option value="">Planta</option>
+                    <option value="">Psíquico</option>
+                    <option value="">Roca</option>
+                    <option value="">Siniestro</option>
+                    <option value="">Tierra</option>
+                    <option value="">Veneno</option>
+                    <option value="">Volador</option>
+                </select>
+                <select class="dropdown" id="">
+                    <option value="" disabled selected>Ordenar por</option>
+                    <option value="1">A - Z</option>
+                    <option value="2">Z - A</option>
+                    <option value="3">Aparece más</option>
+                    <option value="3">Aparece menos</option>
+                </select>
+            </div>
           </div>
       </section>
     </main>
