@@ -248,3 +248,12 @@ fa-user-circle {
     padding: 0;
   }
 }
+
+@media (max-width: 320px) {
+	.formLogin {
+    padding: 20px 23px 48px 22px;
+  }
+  .viewLogin {
+    padding: 0;
+  }
+}

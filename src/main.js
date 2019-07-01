@@ -45,7 +45,6 @@ const passwordLogin=password.value;
         }
 });
 
-
 const mostrarPokemon=(data)=>{
     let showPokemon='';
     for(let j=0;j<data.length;j++){
