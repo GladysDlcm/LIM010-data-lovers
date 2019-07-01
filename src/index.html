@@ -32,13 +32,85 @@
         </div>
         </div>
       </section>
+
       <section class="hide" id="viewPokemon"> 
+        <div class="bgHome">
+          <header class="site-header">
+            <div></div>
+            <img class="logo" src="img/poke-data-logo.png" alt="Logo">
+            <div>
+                <h1 class="center-text">¡Toda la <strong>Poke data</strong> que necesitas la encuentras aquí!</h1>
+                <h2 class="center-text">¡Bienvenido entrenador Pokémon!</h2>
+            </div>
+          </header>
+          <div class="menu">
+            <i class="fas fa-user-circle"></i>
+            <h3 id="user">LABORATORIA</h3>
+            <input class="search" type="search" placeholder="Buscar Pokémons">
+          </div>
+          <div class="container-pokemon">
+              <select class="dropdown" id="">
+                  <option value="" disabled selected>Tipo</option>
+                  <option value="">Acero</option>
+                  <option value="">Agua</option>
+                  <option value="">Bicho</option>
+                  <option value="">Dragón</option>
+                  <option value="">Eléctrico</option>
+                  <option value="">Fantasma</option>
+                  <option value="">Fuego</option>
+                  <option value="">Hada</option>
+                  <option value="">Hielo</option>
+                  <option value="">Lucha</option>
+                  <option value="">Normal</option>
+                  <option value="">Planta</option>
+                  <option value="">Psíquico</option>
+                  <option value="">Roca</option>
+                  <option value="">Siniestro</option>
+                  <option value="">Tierra</option>
+                  <option value="">Veneno</option>
+                  <option value="">Volador</option>
+              </select>
+              <select class="dropdown" id="">
+                  <option value="" disabled selected>Debilidad</option>
+                  <option value="">Acero</option>
+                  <option value="">Agua</option>
+                  <option value="">Bicho</option>
+                  <option value="">Dragón</option>
+                  <option value="">Eléctrico</option>
+                  <option value="">Fantasma</option>
+                  <option value="">Fuego</option>
+                  <option value="">Hada</option>
+                  <option value="">Hielo</option>
+                  <option value="">Lucha</option>
+                  <option value="">Normal</option>
+                  <option value="">Planta</option>
+                  <option value="">Psíquico</option>
+                  <option value="">Roca</option>
+                  <option value="">Siniestro</option>
+                  <option value="">Tierra</option>
+                  <option value="">Veneno</option>
+                  <option value="">Volador</option>
+              </select>
+              <select class="dropdown" id="">
+                  <option value="" disabled selected>Ordenar por</option>
+                  <option value="1">A - Z</option>
+                  <option value="2">Z - A</option>
+                  <option value="3">Aparece más</option>
+                  <option value="3">Aparece menos</option>
+              </select>
+              
+          </div>
+          <div id="containerPokemon"></div>
+        </div>
+    </section>
+    <!-- <section class="hide" id="viewPokemon"> 
           <div class="">
             <form>
                <h1>BIENVENIDO A POKEDATA</h1>
+               <div id="containerPokemon"></div>
             </form>
           </div>
-      </section>
+      </section>-->
     </main>
     <footer></footer>
     <script src="./data/pokemon/pokemon.js"></script>
