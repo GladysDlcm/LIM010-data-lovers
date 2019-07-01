@@ -9,4 +9,19 @@ const example = () => {
 
 window.example = example;
 
-console.log(POKEMON.pokemon[1].img);
+const dataPokemon=(data)=>{
+  let listPokemon=[]
+  for(let i=0; i<data.length;i++){
+    listPokemon.push({
+      img: data[i].img,
+      name:data[i].name
+    });
+  }
+  return listPokemon;
+};
+
+
+window.pokemon  = {
+  dataPokemon : dataPokemon,
+
+};

@@ -5,6 +5,8 @@ const password=document.getElementById("password");
 const msgFail=document.getElementById("msgFail");
 const viewPokemon=document.getElementById("viewPokemon");
 const viewLogin1=document.getElementById("viewLogin1");
+const containerPokemon=document.getElementById("containerPokemon");
+const pokemonData=POKEMON.pokemon;
 let cont=0;
 
 
@@ -42,3 +44,19 @@ const passwordLogin=password.value;
         document.getElementById("password").value=""
         }
 });
+
+const mostrarPokemon=(data)=>{
+    let showPokemon='';
+    for(let j=0;j<data.length;j++){
+        let showP=`
+        <div>
+            <img src="${data[j].img}"/>
+            <p>Nombre:${data[j].name}</p>
+        </div>`;
+        showPokemon=showPokemon+showP;
+    }
+    return showPokemon;
+};
+
+
+containerPokemon.innerHTML=mostrarPokemon(pokemonData);
