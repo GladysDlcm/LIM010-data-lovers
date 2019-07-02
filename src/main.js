@@ -51,7 +51,9 @@ const mostrarPokemon=(data)=>{
         let showP=`
         <div>
             <img src="${data[j].img}"/>
-            <p>Nombre:${data[j].name}</p>
+            <figcaption >${data[j].num}</figcaption >
+            <figcaption >${data[j].name}</figcaption >
+            <figcaption >${data[j].type}</figcaption >
         </div>`;
         showPokemon=showPokemon+showP;
     }
