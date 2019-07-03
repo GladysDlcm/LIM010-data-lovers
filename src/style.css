@@ -242,9 +242,10 @@ select {
   justify-content: center;
 }
 .pokemons-item {
-  margin: 0;
+  margin: 10px;
   padding: 50px;
   text-align: center;
+  border-radius: 10px;
 }
 
 /* Icons */
