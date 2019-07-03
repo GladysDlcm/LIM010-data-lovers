@@ -49,12 +49,12 @@ const mostrarPokemon=(data)=>{
     let showPokemon='';
     for(let j=0;j<data.length;j++){
         let showP=`
-        <div>
+        <figure class="flex-item">
             <img src="${data[j].img}"/>
             <figcaption >${data[j].num}</figcaption >
             <figcaption >${data[j].name}</figcaption >
             <figcaption >${data[j].type}</figcaption >
-        </div>`;
+        </figure>`;
         showPokemon=showPokemon+showP;
     }
     return showPokemon;
