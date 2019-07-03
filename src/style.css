@@ -44,6 +44,15 @@ p {
   background-size: cover;
   background-attachment: fixed;
 }
+.logo {
+	width: 100%;
+	max-width: 350px;
+  margin: 0 auto;
+	padding: 20px 0 16px 0;
+  display: flex;
+}
+
+/*Utilities*/
 .center {
   max-width: 460px;
   justify-content: center;
@@ -53,12 +62,63 @@ p {
   max-width: 700px;
   margin: 20px auto;
 }
-.logo {
+.hide {
+	display: none;
+}
+.show {
+  display:block;
+}
+
+/*Login*/
+.viewLogin {
+    display: block;
+	  margin: 0px auto;
+    max-width: 460px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.bgLogin {
+  background-image: url(img/bg-2.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.formLogin {
+  padding: 16px 63px 40px 62px;
+  background-color: #00000085;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 3px 7px 1px rgba(0,0,0,0.73); 
+  box-shadow: 1px 3px 7px 1px rgba(0,0,0,0.73);
+}
+.msgFail {
+  color: #c6c6c6;
+  justify-content: center;
+  text-align: center;
+}
+input:not([type="bottom"]):not([type='search']):not([type='select']),
+text, password
+{
+  display: block;
 	width: 100%;
-	max-width: 350px;
-  margin: 0 auto;
-	padding: 20px 0 16px 0;
-  display: flex;
+  padding: 7px 14px;
+  min-height: 45px;
+  line-height: 1.5;
+	margin: 12px 0;
+  border: 0 solid #ffffff;
+  background: #FFFFFF;
+  color: #333333;
+  border-radius: 2px;
+  outline: transparent;
+  box-sizing: border-box;
+}
+label {
+  color: #ffffff;
+}
+
+/*Second View*/
+.bgHome {
+  background-image: url(img/wavy-dots.png);
 }
 .menu {
   background-color: #2e51a2;
@@ -79,54 +139,6 @@ p {
   border-radius: 2px;
   border: 0 solid #ffffff;
   float: right;
-}
-.bgLogin {
-  background-image: url(img/bg-2.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-.viewLogin {
-    display: block;
-	  margin: 0px auto;
-    max-width: 460px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-.formLogin {
-  padding: 16px 63px 40px 62px;
-  background-color: #00000085;
-  border-radius: 5px;
-  -webkit-box-shadow: 1px 3px 7px 1px rgba(0,0,0,0.73); 
-  box-shadow: 1px 3px 7px 1px rgba(0,0,0,0.73);
-}
-.container-pokemon {
-  justify-items: space-between;
-  flex-direction: row;
-  padding: 80px 50px;
-  margin: 0 89px;
-  display: flex;
-  max-width: 100%;
-}
-input:not([type="bottom"]):not([type='search']):not([type='select']),
-text, password
-{
-  display: block;
-	width: 100%;
-  padding: 7px 14px;
-  min-height: 45px;
-  line-height: 1.5;
-	margin: 12px 0;
-  border: 0 solid #ffffff;
-  background: #FFFFFF;
-  color: #333333;
-  border-radius: 2px;
-  outline: transparent;
-  box-sizing: border-box;
-}
-label {
-  color: #ffffff;
 }
 select {
   width: 50%;
@@ -176,6 +188,8 @@ select {
  .dropdown option {
   font-weight:normal;
  }
+
+ /*Buttons*/
 .buttonLogin {
   color: #ffffff;
   font-weight: 800;
@@ -195,11 +209,6 @@ select {
   outline: transparent;
   cursor: pointer;
 }
-.msgFail {
-  color: #c6c6c6;
-  justify-content: center;
-  text-align: center;
-}
 .btnLink1 {
   font-size: 14px;
   font-weight: 800;
@@ -214,18 +223,31 @@ select {
   cursor: pointer;
   color:#ffffff
 }
-.hide {
-	display: none;
+
+/*Pokemons*/
+.container-pokemon {
+  justify-items: space-between;
+  flex-direction: row;
+  padding: 80px 50px;
+  margin: 0 89px;
+  display: flex;
+  max-width: 100%;
 }
-.show {
-  display:block;
+.pokemons {
+  flex-wrap: wrap;
+  display: flex;
+  margin: 0px auto;
+  width: 1280px;
+  max-width: 100%;
+  justify-content: center;
 }
-.bgHome {
-  background-image: url(img/wavy-dots.png);
-  height: 100vh;
+.pokemons-item {
+  margin: 0;
+  padding: 50px;
+  text-align: center;
 }
 
-/* Iconos */
+/* Icons */
 .fas {
 	color: #ffffff;
 	font-size: 18px;
@@ -240,6 +262,7 @@ fa-user-circle {
 	padding-right: 30px!important;
 }
 
+/*Responsive*/
 @media (max-width: 320px) {
 	.formLogin {
     padding: 20px 23px 48px 22px;

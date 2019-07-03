@@ -30,16 +30,15 @@ const passwordLogin=password.value;
         console.log("bloqueo");
         document.getElementById("user").value=""
         document.getElementById("password").value=""
-        msgFail.classList.add("hide");
         document.getElementById('user').disabled = true;
         document.getElementById('password').disabled = true;
         document.getElementById('buttonLogin').disabled = true;
-        alert("Superó los numeros de intentos, vuelva a cargar!");
+        msgFail.innerHTML="Ya utilizaste todos tus intentos, en este momento no podrás ingresar.";
         }
     else{
         cont=cont+1;
         console.log("CLAVE INCORRECTA");
-        msgFail.innerHTML="Clave incorrecta";
+        msgFail.innerHTML="Los datos ingresados son incorrectos";
         document.getElementById("user").value=""
         document.getElementById("password").value=""
         }
@@ -49,9 +48,11 @@ const mostrarPokemon=(data)=>{
     let showPokemon='';
     for(let j=0;j<data.length;j++){
         let showP=`
-        <div>
+        <div class="pokemons-item">
             <img src="${data[j].img}"/>
-            <p>Nombre:${data[j].name}</p>
+            <figcaption >${data[j].num}</figcaption >
+            <figcaption >${data[j].name}</figcaption >
+            <figcaption >${data[j].type}</figcaption >
         </div>`;
         showPokemon=showPokemon+showP;
     }
