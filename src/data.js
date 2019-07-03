@@ -14,7 +14,9 @@ const dataPokemon=(data)=>{
   for(let i=0; i<data.length;i++){
     listPokemon.push({
       img: data[i].img,
-      name:data[i].name
+      num:data[i].num,
+      name:data[i].name,
+      tipo:data[i].tipo
     });
   }
   return listPokemon;
