@@ -9,9 +9,9 @@ const example = () => {
 
 window.example = example;
 
-const dataPokemon=(data)=>{
-  let listPokemon=[]
-  for(let i=0; i<data.length;i++){
+const dataPokemon = (data)=>{
+  let listPokemon = []
+  for(let i = 0; i<data.length;i++){
     listPokemon.push({
       img: data[i].img,
       num:data[i].num,

@@ -11,12 +11,12 @@ let modal = document.getElementById('poke-modal');
 let flex = document.getElementById('flex');
 let close = document.getElementById('close');
 const OrderAz = document.getElementById('OrderAz');
-const ordenarPor= document.getElementById('ordenar-por');
+const ordenarPor = document.getElementById('ordenar-por');
 
 let cont = 0;
 
 close.addEventListener('click', () => {
-	modal.style.display = 'none';
+modal.style.display = 'none';
 });
 
 window.addEventListener('click', (event) => {
@@ -118,8 +118,8 @@ for (let i = 0; i < divItems.length; i++) {
 
 }
 
-  const ordenarPokemon = () => {
-    const arrayOrdenado = pokemon.ordenarPropiedad(pokemonData, ordenarPor.value);
-    mostrarPokemon(arrayOrdenado);
-  };
+const ordenarPokemon = () => {
+	const arrayOrdenado = pokemon.ordenarPropiedad(pokemonData, ordenarPor.value);
+	mostrarPokemon(arrayOrdenado);
+};
 
