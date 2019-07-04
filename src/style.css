@@ -123,11 +123,9 @@ label {
 .menu {
   background-color: #2e51a2;
   display: flex;
-  padding: 10px 0px;
+  padding: 10px 89px;
   line-height: 1.5em;
-  justify-content: space-around;
-  flex-direction: row;
-  align-content: center;
+  justify-content: space-evenly;
 }
 .search {
   width: 20%;
