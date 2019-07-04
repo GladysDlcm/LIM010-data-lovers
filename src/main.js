@@ -10,6 +10,8 @@ const pokemonData = POKEMON.pokemon;
 let modal = document.getElementById('pokeModal');
 let flex = document.getElementById('flex');
 let close = document.getElementById('close');
+const OrderAz = document.getElementById('OrderAz');
+const ordenarPor= document.getElementById('ordenarPor');
 
 let cont = 0;
 
@@ -115,3 +117,9 @@ for (let i = 0; i < divItems.length; i++) {
 	});
 
 }
+
+  const ordenarPokemon = () => {
+    const arrayOrdenado = pokemon.ordenarPropiedad(pokemonData, ordenarPor.value);
+    mostrarPokemon(arrayOrdenado);
+  };
+

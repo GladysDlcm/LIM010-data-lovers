@@ -22,15 +22,37 @@ const dataPokemon=(data)=>{
   return listPokemon;
 };
 
-
-window.pokemon  = {
-  dataPokemon : dataPokemon,
-
-};
-
 /*console.log(POKEMON.pokemon[1]);
 let pokemonlist=POKEMON.pokemon;
 for(let i=0; i<pokemonlist.length;i++){
 console.log(pokemonlist[i].img);
 }
 */
+
+//
+const ordenarPropiedad = (data, tipo) => {
+  let arrayOrdenar = [];
+  for (let i = 0 ; i < data.length ; i++) {
+    arrayOrdenar.push({name: data[i].name, img: data[i].img});
+  }
+  arrayOrdenar.sort((prev, next) => {
+    if (prev.name > next.name) {
+      return 1;
+    }
+    if (prev.name < next.name) {
+      return -1;
+    }
+    return 0;
+  });
+  if (tipo === '1'){
+    return arrayOrdenar;
+  }
+  if (tipo === '2'){
+    return arrayOrdenar.reverse();
+  }
+};
+
+window.pokemon  = {
+  dataPokemon, ordenarPropiedad
+
+};

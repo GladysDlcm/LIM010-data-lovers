@@ -23,7 +23,7 @@ describe('pokemon.dataPokemon', () => {
     assert.equal(typeof dataPokemon(), 'fuction');
   });
 
-  it('debería retornar un nuevo array para mostrar propiedades, no cambiar el original', (input) => {
+  it('debería retornar un nuevo array para mostrar propiedades, no cambiar el original', (data) => {
     assert.equal(typeof dataPokemon(data), 'data');
   });
 });
