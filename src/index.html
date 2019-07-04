@@ -3,7 +3,7 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>POKEDATA Go</title>
+    <title>POKEDATA GO</title>
     <link rel="stylesheet" href="style.css" />
     <!--<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
@@ -45,7 +45,7 @@
             </header>
             <div class="menu">
               <i class="fas fa-user-circle"></i>
-              <h3 id="user">LABORATORIA</h3>
+              <h3 id="user">Hola LABORATORIA</h3>
               <input class="search" type="search" placeholder="Buscar Pokémons">
             </div>
             <div class="container-pokemon">
@@ -100,6 +100,21 @@
                 </select>
             </div>
             <div id="containerPokemon" class="pokemons"></div>
+            <div id="pokeModal" class="modal">
+              <div class="flex" id="flex">
+                <div class="container-modal">
+                  <div class="modal-header flex">
+                    <h2>Pokemon Detalles</h2>
+                    <span class="close" id="close">&times;</span>
+                  </div>
+                  <div id="pokemonDetail" class="modal-body">
+                  </div>
+                  <div class="footer">
+                    <h3>Pokemon</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
       </section>
     </main>
