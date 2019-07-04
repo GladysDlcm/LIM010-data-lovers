@@ -11,7 +11,6 @@ window.example = example;
 
 const dataPokemon=(data)=>{
   let listPokemon=[]
-  console.log(listPokemon);
   for(let i=0; i<data.length;i++){
     listPokemon.push({
       img: data[i].img,
@@ -29,3 +28,9 @@ window.pokemon  = {
 
 };
 
+/*console.log(POKEMON.pokemon[1]);
+let pokemonlist=POKEMON.pokemon;
+for(let i=0; i<pokemonlist.length;i++){
+console.log(pokemonlist[i].img);
+}
+*/
