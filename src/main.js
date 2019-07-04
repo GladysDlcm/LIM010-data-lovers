@@ -2,14 +2,16 @@
 //VARIABLES
 const user = document.getElementById("user");
 const password = document.getElementById("password");
-const msgFail = document.getElementById("msgFail");
-const viewPokemon = document.getElementById("viewPokemon");
-const viewLogin1 = document.getElementById("viewLogin1");
-const containerPokemon = document.getElementById("containerPokemon");
+const msgFail = document.getElementById("msg-fail");
+const viewPokemon = document.getElementById("view-pokemon");
+const viewLogin1 = document.getElementById("view-login");
+const containerPokemon = document.getElementById("container-pokemon");
 const pokemonData = POKEMON.pokemon;
-let modal = document.getElementById('pokeModal');
+let modal = document.getElementById('poke-modal');
 let flex = document.getElementById('flex');
 let close = document.getElementById('close');
+const OrderAz = document.getElementById('OrderAz');
+const ordenarPor= document.getElementById('ordenar-por');
 
 let cont = 0;
 
@@ -25,7 +27,7 @@ window.addEventListener('click', (event) => {
 });
 
 //BOTONES
-const buttonLogin = document.getElementById("buttonLogin");
+const buttonLogin = document.getElementById("button-login");
 
 //FUNCIONES
 buttonLogin.addEventListener("click", (event) => {
@@ -46,7 +48,7 @@ buttonLogin.addEventListener("click", (event) => {
 		document.getElementById("password").value = ""
 		document.getElementById('user').disabled = true;
 		document.getElementById('password').disabled = true;
-		document.getElementById('buttonLogin').disabled = true;
+		document.getElementById('button-login').disabled = true;
 		msgFail.innerHTML = "Ya utilizaste todos tus intentos, en este momento no podrás ingresar.";
 	}
 	else {
@@ -87,7 +89,7 @@ for (let i = 0; i < divItems.length; i++) {
 
 		let pokemonId = parseInt(pokemonItem.getAttribute("id"));
 		modal.style.display = 'block';
-		let pokemonDetail = document.getElementById("pokemonDetail");
+		let pokemonDetail = document.getElementById("pokemon-detail");
 		let detailHtml = "";
 		let pokemonSingle = null;
 		console.log(pokemonId);
@@ -103,9 +105,11 @@ for (let i = 0; i < divItems.length; i++) {
 		/*Modal detalle*/
 		detailHtml = `
         <img src="${pokemonSingle.img}"/>
-        <figcaption >${pokemonSingle.num}</figcaption >
-        <figcaption >${pokemonSingle.name}</figcaption >
-        <figcaption >${pokemonSingle.type}</figcaption >
+        <figcaption >Num :#     ${pokemonSingle.num}</figcaption>
+        <figcaption >Nombre:    ${pokemonSingle.name}</figcaption>
+        <figcaption >Tipo:      ${pokemonSingle.type}</figcaption>
+        <figcaption >Huevo:     ${pokemonSingle.egg}</figcaption>
+        <figcaption >Caramelos: ${pokemonSingle.candy}</figcaption>
         `;
 
 		pokemonDetail.innerHTML = detailHtml;
@@ -113,3 +117,9 @@ for (let i = 0; i < divItems.length; i++) {
 	});
 
 }
+
+  const ordenarPokemon = () => {
+    const arrayOrdenado = pokemon.ordenarPropiedad(pokemonData, ordenarPor.value);
+    mostrarPokemon(arrayOrdenado);
+  };
+

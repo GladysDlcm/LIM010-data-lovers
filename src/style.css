@@ -70,28 +70,28 @@ p {
 }
 
 /*Login*/
-.viewLogin {
+.view-formulario {
     display: block;
 	  margin: 0px auto;
     max-width: 460px;
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.bgLogin {
+.bg-login {
   background-image: url(img/bg-2.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
-.formLogin {
+.form-login {
   padding: 16px 63px 40px 62px;
   background-color: #00000085;
   border-radius: 5px;
   -webkit-box-shadow: 1px 3px 7px 1px rgba(0,0,0,0.73); 
   box-shadow: 1px 3px 7px 1px rgba(0,0,0,0.73);
 }
-.msgFail {
+.msg-fail {
   color: #c6c6c6;
   justify-content: center;
   text-align: center;
@@ -117,7 +117,7 @@ label {
 }
 
 /*Second View*/
-.bgHome {
+.bg-home {
   background-image: url(img/wavy-dots.png);
 }
 .menu {
@@ -188,7 +188,7 @@ select {
  }
 
  /*Buttons*/
-.buttonLogin {
+.button-login {
   color: #ffffff;
   font-weight: 800;
   text-decoration: none;
@@ -207,7 +207,7 @@ select {
   outline: transparent;
   cursor: pointer;
 }
-.btnLink1 {
+.btn-link1 {
   font-size: 14px;
   font-weight: 800;
   display: block;
@@ -215,7 +215,7 @@ select {
   color: #ffffff;
   cursor: pointer;
 }
-.btnLink2 {
+.btn-link2 {
   font-size: 16px;
   display: flex;
   cursor: pointer;
@@ -264,19 +264,19 @@ fa-user-circle {
 
 /*Responsive*/
 @media (max-width: 320px) {
-	.formLogin {
+	.form-login {
     padding: 20px 23px 48px 22px;
   }
-  .viewLogin {
+  .view-formulario {
     padding: 0;
   }
 }
 
 @media (max-width: 320px) {
-	.formLogin {
+	.form-login {
     padding: 20px 23px 48px 22px;
   }
-  .viewLogin {
+  .view-formulario {
     padding: 0;
   }
 }
