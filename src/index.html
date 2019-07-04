@@ -7,34 +7,33 @@
     <link rel="stylesheet" href="style.css" />
     <!--<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/1d89626b25.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <main>
-      <section id="viewLogin1">
-        <div class="bgLogin">
-        <div class="viewLogin center">
-          <form class="formLogin center">
+      <section id="view-login">
+        <div class="bg-login">
+        <div class="view-formulario center">
+          <form class="form-login center">
             <img class="logo" src="img/poke-data-logo.png" alt="Logo">
             <div class="center">
               <label>Correo electrónico</label>
                 <input type="text" id="user" value="LABORATORIA"/>
                 <label>Contraseña</label>
                 <input type="password" id="password" value="LABORATORIA"/>
-                <p id="msgFail" class="msgFail"></p>
-                <a class="btnLink1">¿Olvidaste tu contraseña?</a>
+                <p id="msg-fail" class="msg-fail"></p>
+                <a class="btn-link1">¿Olvidaste tu contraseña?</a>
             </div>
             <div class="center">
-              <button type="submit" class="buttonLogin center" id="buttonLogin" >Ingresa</button>
-              <a class="btnLink2 center">¿No tienes una cuenta? Registrate</a>
+              <button type="submit" class="button-login center" id="button-login" >Ingresa</button>
+              <a class="btn-link2 center">¿No tienes una cuenta? Registrate</a>
             </div>
           </form>
         </div>
         </div>
       </section>
-      <section class="hide" id="viewPokemon"> 
-          <div class="bgHome">
+      <section class="hide" id="view-pokemon"> 
+          <div class="bg-home">
             <header class="site-header">
               <div></div>
               <img class="logo" src="img/poke-data-logo.png" alt="Logo">
@@ -45,11 +44,11 @@
             </header>
             <div class="menu">
               <i class="fas fa-user-circle"></i>
-              <h3 id="user">Hola LABORATORIA</h3>
+              <h3 id="user1">Hola LABORATORIA</h3>
               <input class="search" type="search" placeholder="Buscar Pokémons">
             </div>
             <div class="container-pokemon">
-                <select class="dropdown" id="">
+                <select class="dropdown">
                     <option value="" disabled selected>Tipo</option>
                     <option value="">Acero</option>
                     <option value="">Agua</option>
@@ -70,7 +69,7 @@
                     <option value="">Veneno</option>
                     <option value="">Volador</option>
                 </select>
-                <select class="dropdown" id="">
+                <select class="dropdown" >
                     <option value="" disabled selected>Debilidad</option>
                     <option value="">Acero</option>
                     <option value="">Agua</option>
@@ -91,7 +90,7 @@
                     <option value="">Veneno</option>
                     <option value="">Volador</option>
                 </select>
-                <select class="dropdown" id="">
+                <select class="dropdown" id="ordenar-por" onchange="ordenarPokemon()" >
                     <option value="" disabled selected>Ordenar por</option>
                     <option value="1">A - Z</option>
                     <option value="2">Z - A</option>
@@ -99,14 +98,14 @@
                     <option value="3">Aparece menos</option>
                 </select>
             </div>
-            <div id="containerPokemon" class="pokemons"></div>
-            <div id="pokeModal" class="modal">
+            <div id="container-pokemon" class="pokemons"></div>
+            <div id="poke-modal" class="modal">
               <div class="flex" id="flex">
                 <div class="container-modal">
                   <div class="modal-header flex">
                     <span class="close" id="close">&times;</span>
                   </div>
-                  <div id="pokemonDetail" class="modal-body">
+                  <div id="pokemon-detail" class="modal-body">
                       <h2>Pokemon Detalles</h2>
                   </div>
                   <div class="footer">
@@ -119,6 +118,7 @@
       </section>
     </main>
     <footer></footer>
+    <script src="https://kit.fontawesome.com/1d89626b25.js"></script>
     <script src="./data/pokemon/pokemon.js"></script>
     <script src="data.js"></script>
     <script src="main.js"></script>
