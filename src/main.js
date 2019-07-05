@@ -151,7 +151,7 @@ for (let i = 0; i < divItems.length; i++) {
 }
 
 
-/*
+
 // funcion para ordenar a-z y z-a
 const orderPokemon = document.getElementById('ordenar-por');
 orderPokemon.addEventListener('change', () => {
@@ -166,4 +166,3 @@ const selectOrder = ordenarPor.value;
    containerPokemon.innerHTML = mostrarPokemon(a);
  }
 });
-*/

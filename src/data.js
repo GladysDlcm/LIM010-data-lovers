@@ -30,7 +30,6 @@ console.log(pokemonlist[i].img);
 }
 */
 
-/*
 
 //FUNCIÓN ORDENAR A-Z /Z-A
 const compareSortData = (elemA, elemB) => {
@@ -50,8 +49,6 @@ const sortData = (data, sortBy) => {
   }
   return data;
 }
-*/
-
 
 
 window.pokemon = {
