@@ -67,7 +67,7 @@ const mostrarPokemon = (data) => {
         <div id="${data[j].id}" class="pokemons-item">
             <img src="${data[j].img}"/>
             <figcaption >${data[j].num}</figcaption >
-            <figcaption >${data[j].name}</figcaption >
+            <h4 class="pokemon-text">${data[j].name}</h4>
             <figcaption >${data[j].type}</figcaption >
         </div>`;
 		showPokemon = showPokemon + showP;
@@ -104,13 +104,49 @@ for (let i = 0; i < divItems.length; i++) {
 
 		/*Modal detalle*/
 		detailHtml = `
-        <img src="${pokemonSingle.img}"/>
-        <figcaption >Num :#     ${pokemonSingle.num}</figcaption>
-        <figcaption >Nombre:    ${pokemonSingle.name}</figcaption>
-        <figcaption >Tipo:      ${pokemonSingle.type}</figcaption>
-        <figcaption >Huevo:     ${pokemonSingle.egg}</figcaption>
-        <figcaption >Caramelos: ${pokemonSingle.candy}</figcaption>
-        `;
+		<div class="img-container">
+			<img src="${pokemonSingle.img}"/>
+		</div>
+		<div class="pokemon-text center-text"> 
+			<h1>${pokemonSingle.name}</h1>
+			<span># ${pokemonSingle.num}</span>
+		</div> 
+		<div class="detail-container">
+			<div>
+				<p>Peso: ${pokemonSingle.weight}</p>
+			</div>
+			<div>
+				<p>${pokemonSingle.type}</p>
+			</div>
+			<div>
+				<p>Alto: ${pokemonSingle.height}</p>
+			</div>
+		</div>`;
+		
+
+		if(pokemonSingle.candy_count != undefined){
+
+			detailHtml = detailHtml + 		`
+			<div class="detail-container2 center-text pokemon-text">
+				<div><p>${pokemonSingle.candy_count}</p>
+			`;
+	
+			}
+
+			detailHtml = detailHtml + `	
+				<p>${pokemonSingle.candy}</p></div>
+				<div><p>${pokemonSingle.egg}</p></div>
+			</div>`;
+		
+		if(pokemonSingle.next_evolution != undefined){
+
+		detailHtml = detailHtml + 		`
+		<div class="detail-container2 center-text pokemon-text">
+		<p>Evolución: ${pokemonSingle.next_evolution[0].name}</p></div>
+		`;
+
+		}
+
 
 		pokemonDetail.innerHTML = detailHtml;
 

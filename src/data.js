@@ -16,7 +16,8 @@ const dataPokemon = (data)=>{
       img: data[i].img,
       num:data[i].num,
       name:data[i].name,
-      tipo:data[i].tipo
+      tipo:data[i].type,
+      evolución:data[i].next_evolution[1].name
     });
   }
   return listPokemon;
