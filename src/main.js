@@ -1,62 +1,60 @@
 /* Manejo del DOM */
-//VARIABLES
-const user = document.getElementById("user");
-const password = document.getElementById("password");
-const msgFail = document.getElementById("msg-fail");
-const viewPokemon = document.getElementById("view-pokemon");
-const viewLogin1 = document.getElementById("view-login");
-const containerPokemon = document.getElementById("container-pokemon");
+// VARIABLES
+const user = document.getElementById('user');
+const password = document.getElementById('password');
+const msgFail = document.getElementById('msg-fail');
+const viewPokemon = document.getElementById('view-pokemon');
+const viewLogin1 = document.getElementById('view-login');
+const containerPokemon = document.getElementById('container-pokemon');
 const pokemonData = POKEMON.pokemon;
 let modal = document.getElementById('poke-modal');
 let flex = document.getElementById('flex');
 let close = document.getElementById('close');
 const OrderAz = document.getElementById('OrderAz');
-const ordenarPor= document.getElementById('ordenar-por');
+const ordenarPor = document.getElementById('ordenar-por');
 
 let cont = 0;
 
 close.addEventListener('click', () => {
-	modal.style.display = 'none';
+		modal.style.display = 'none';
 });
 
 window.addEventListener('click', (event) => {
-	console.log(event.target);
-	if (event.target == flex) {
+		console.log(event.target);
+	if (event.target === flex) {
 		modal.style.display = 'none';
 	}
 });
 
-//BOTONES
-const buttonLogin = document.getElementById("button-login");
+// BOTONES
+const buttonLogin = document.getElementById('button-login');
 
-//FUNCIONES
+// FUNCIONES
 buttonLogin.addEventListener("click", (event) => {
 	event.preventDefault();
 
 	const userLogin = user.value;
 	const passwordLogin = password.value;
 
-	if (userLogin === "LABORATORIA" && passwordLogin === "LABORATORIA") {
-
-		viewPokemon.classList.add("show");
-		viewLogin1.classList.add("hide");
+	if (userLogin === 'LABORATORIA' && passwordLogin === 'LABORATORIA') {
+		viewPokemon.classList.add('show');
+		viewLogin1.classList.add('hide');
 		cont = 0;
-	}
-	else if (cont >= 2) {
-		console.log("bloqueo");
-		document.getElementById("user").value = ""
-		document.getElementById("password").value = ""
-		document.getElementById('user').disabled = true;
-		document.getElementById('password').disabled = true;
-		document.getElementById('button-login').disabled = true;
-		msgFail.innerHTML = "Ya utilizaste todos tus intentos, en este momento no podrás ingresar.";
+	}	else if (cont >= 2) {
+			console.log('bloqueo');
+			document.getElementById('user').value = '';
+			document.getElementById('password').value = '';
+			document.getElementById('user').disabled = true;
+			document.getElementById('password').disabled = true;
+			document.getElementById('button-login').disabled = true;
+			msgFail.innerHTML = 'Ya utilizaste todos tus intentos, en este momento no podrás ingresar.';
 	}
 	else {
 		cont = cont + 1;
 		console.log("CLAVE INCORRECTA");
 		msgFail.innerHTML = "Los datos ingresados son incorrectos";
-		document.getElementById("user").value = ""
-		document.getElementById("password").value = ""
+		document.getElementById('user').value = ""
+		document.getElementById('password').value = ""
 	}
 });
 
@@ -76,20 +74,20 @@ const mostrarPokemon = (data) => {
 	return showPokemon;
 };
 
-
+//detalle de los pokemones
 containerPokemon.innerHTML = mostrarPokemon(pokemonData);
 
-let divItems = containerPokemon.getElementsByTagName("div");
+let divItems = containerPokemon.getElementsByTagName('div');
 
 for (let i = 0; i < divItems.length; i++) {
 
-	let pokemonItem = document.getElementById(divItems[i].getAttribute("id"));
+	let pokemonItem = document.getElementById(divItems[i].getAttribute('id'));
 	console.log(pokemonItem);
 	pokemonItem.addEventListener('click', () => {
 
-		let pokemonId = parseInt(pokemonItem.getAttribute("id"));
+		let pokemonId = parseInt(pokemonItem.getAttribute('id'));
 		modal.style.display = 'block';
-		let pokemonDetail = document.getElementById("pokemon-detail");
+		let pokemonDetail = document.getElementById('pokemon-detail');
 		let detailHtml = "";
 		let pokemonSingle = null;
 		console.log(pokemonId);
@@ -102,24 +100,33 @@ for (let i = 0; i < divItems.length; i++) {
 
 		}
 
-		/*Modal detalle*/
+	// Modal detalle
 		detailHtml = `
-        <img src="${pokemonSingle.img}"/>
-        <figcaption >Num :#     ${pokemonSingle.num}</figcaption>
-        <figcaption >Nombre:    ${pokemonSingle.name}</figcaption>
-        <figcaption >Tipo:      ${pokemonSingle.type}</figcaption>
-        <figcaption >Huevo:     ${pokemonSingle.egg}</figcaption>
-        <figcaption >Caramelos: ${pokemonSingle.candy}</figcaption>
-        `;
-
+      <img src="${pokemonSingle.img}"/>
+      <figcaption >Num :#     ${pokemonSingle.num}</figcaption>
+      <figcaption >Nombre:    ${pokemonSingle.name}</figcaption>
+      <figcaption >Tipo:      ${pokemonSingle.type}</figcaption>
+      <figcaption >Huevo:     ${pokemonSingle.egg}</figcaption>
+      <figcaption >Caramelos: ${pokemonSingle.candy}</figcaption>
+      `;
 		pokemonDetail.innerHTML = detailHtml;
-
 	});
-
 }
 
-  const ordenarPokemon = () => {
-    const arrayOrdenado = pokemon.ordenarPropiedad(pokemonData, ordenarPor.value);
-    mostrarPokemon(arrayOrdenado);
-  };
 
+/*
+// funcion para ordenar a-z y z-a
+const orderPokemon = document.getElementById('ordenar-por');
+orderPokemon.addEventListener('change', () => {
+const selectOrder = ordenarPor.value;
+  let pokeResultSort = '';
+  if(selectOrder==='1'){
+	pokeResultSort = pokemon.sortData(pokemonData);
+	containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);}
+  else if(selectOrder==='2'){
+	pokeResultSort = pokemon.sortData(pokemonData);
+   let a=pokeResultSort.reverse();	
+   containerPokemon.innerHTML = mostrarPokemon(a);
+ }
+});
+*/
