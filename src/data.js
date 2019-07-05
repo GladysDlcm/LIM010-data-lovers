@@ -23,13 +23,6 @@ const dataPokemon = (data)=>{
   return listPokemon;
 };
 
-/* console.log(POKEMON.pokemon[1]);
-let pokemonlist=POKEMON.pokemon;
-for(let i=0; i<pokemonlist.length;i++){
-console.log(pokemonlist[i].img);
-}
-*/
-
 
 // FUNCIÓN ORDENAR A-Z /Z-A
 const compareSortData = (elemA, elemB) => {
