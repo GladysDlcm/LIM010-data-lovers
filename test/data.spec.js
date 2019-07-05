@@ -9,6 +9,12 @@ const data = [
   {id: 3, name: 'Venusaur', img: 'http://www.serebii.net/pokemongo/pokemon/003.png', type: ['Grass', 'Poison']}
 ];
 
+const outputOne = [{
+  'name': 'Bulbasaur',
+  'type': ['Grass','Poison'],
+  'img' :  'http://www.serebii.net/pokemongo/pokemon/001.png'
+}];
+
 // eslint-disable-next-line no-undef
 describe('pokemon', () => {
   
@@ -22,8 +28,8 @@ describe('pokemon.dataPokemon', () => {
     
     expect(typeof global.pokemon.dataPokemon).toEqual('function') ;
   });
-
-  it('debería retornar un nuevo array para mostrar propiedades, no cambiar el original', (data) => {
-    expect(typeof dataPokemon(data)).toEqual('array');
+ 
+  it('deberia retornar output para output', () => {
+    expect(global.pokemon.dataPokemon(data,'Blastoise')).toEqual(outputOne);
   });
 });

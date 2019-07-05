@@ -10,20 +10,20 @@ const example = () => {
 window.example = example;
 
 const dataPokemon = (data)=>{
-  let listPokemon = []
-  for(let i = 0; i<data.length;i++){
+  let listPokemon = [];
+  for (let i = 0; i < data.length; i++) {
     listPokemon.push({
       img: data[i].img,
-      num:data[i].num,
-      name:data[i].name,
-      tipo:data[i].type,
-      evolución:data[i].next_evolution[1].name
+      num: data[i].num,
+      name: data[i].name,
+      tipo: data[i].type
+      //evolución: data[i].next_evolution[1].name
     });
   }
   return listPokemon;
 };
 
-/*console.log(POKEMON.pokemon[1]);
+/* console.log(POKEMON.pokemon[1]);
 let pokemonlist=POKEMON.pokemon;
 for(let i=0; i<pokemonlist.length;i++){
 console.log(pokemonlist[i].img);
@@ -31,7 +31,7 @@ console.log(pokemonlist[i].img);
 */
 
 
-//FUNCIÓN ORDENAR A-Z /Z-A
+// FUNCIÓN ORDENAR A-Z /Z-A
 const compareSortData = (elemA, elemB) => {
   if (elemA.name > elemB.name)
     return 1;
@@ -42,16 +42,15 @@ const compareSortData = (elemA, elemB) => {
 
 const sortData = (data, sortBy) => {
   let sortedData = data.sort(compareSortData);
-  if (sortBy === "1") {
+  if (sortBy === '1') {
     return sortedData;
-  } else if (sortBy === "2") {
+  } else if (sortBy === '2') {
     return sortedData.reverse();
   }
   return data;
 }
 
-
 window.pokemon = {
   dataPokemon,
-    sortData
+  sortData
 };
