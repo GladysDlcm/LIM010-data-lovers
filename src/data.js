@@ -9,14 +9,15 @@ const example = () => {
 
 window.example = example;
 
-const dataPokemon = (data) => {
+const dataPokemon = (data)=>{
   let listPokemon = []
-  for (let i = 0; i < data.length; i++) {
+  for(let i = 0; i<data.length;i++){
     listPokemon.push({
       img: data[i].img,
-      num: data[i].num,
-      name: data[i].name,
-      tipo: data[i].tipo
+      num:data[i].num,
+      name:data[i].name,
+      tipo:data[i].type,
+      evolución:data[i].next_evolution[1].name
     });
   }
   return listPokemon;

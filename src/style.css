@@ -12,20 +12,32 @@ body {
   margin: 0 auto;
 }
 h1 {
+  color: #155eaa;
+  font-size: 20px;
+  line-height: 1.1rem;
+  font-weight: 800;
+}
+h2 {
   color: #ffffff;
   font-size: 35px;
   line-height: 2.5rem;
   font-weight: 800;
   text-shadow: 1px 2px 2px rgba(51,51,51,0.91);
 }
-h2 {
+h3 {
 	color: #ffffff;
   font-size: 20px;
   line-height: 1.5rem;
   font-weight: 600;
   text-shadow: 1px 2px 2px rgba(51,51,51,0.91);
 }
-h3 {
+h4 {
+	color: #155eaa;
+  font-size: 16px;
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+h5 {
 	color: #ffffff;
   font-size: 16px;
   line-height: 1.5rem;
@@ -36,7 +48,7 @@ p {
 }
 .site-header {
   margin: 0 auto;
-	padding: 60px 0px;
+	padding: 80px 0px;
   justify-content: center;
   background-image: url(img/bg-1.jpg);
   background-position: center center;
@@ -262,29 +274,9 @@ fa-user-circle {
 	padding-right: 30px!important;
 }
 
-/*Responsive*/
-@media (max-width: 320px) {
-	.form-login {
-    padding: 20px 23px 48px 22px;
-  }
-  .view-formulario {
-    padding: 0;
-  }
-}
-
-@media (max-width: 320px) {
-	.form-login {
-    padding: 20px 23px 48px 22px;
-  }
-  .view-formulario {
-    padding: 0;
-  }
-}
-
-
-
+/*Modal*/
 .flex{
-	width: 100%;
+	/*width: 100%;*/
 	height:100%;
 	display: flex;
 	justify-content: space-between;
@@ -303,9 +295,8 @@ fa-user-circle {
 	height:100%;
 	background: rgba(0, 0, 0, 0.452);
 }
-
 .container-modal{
-  width: calc(50% - 30px);
+  width: calc(30% - 30px);
   max-width: 64rem;
   margin: 30px auto;
 	position: relative;
@@ -314,6 +305,7 @@ fa-user-circle {
 	animation-name: modal;
   animation-duration: 1s;
   border: 1px solid rgba(0,0,0,.2);
+  border-radius: 10px;
 }
 @keyframes modal{
 	from{top:-330px; opacity:0;}
@@ -330,14 +322,64 @@ fa-user-circle {
 	text-decoration: none;
 	cursor: pointer;
 }
-
-.modal-header, .footer{
+.modal-header, .footer {
 	padding: 8px 16px;
-	background: #ffffff;
-	color:#2e51a2;
+  color:#2e51a2;
+  float: right;
+}
+.modal-body {
+  padding: 20px 40px;
 }
 
-.modal-body{
-  padding: 20px 40px;
-  background: #ffffff;
+/*Pokemones Detalles*/
+.img-container {
+  width: 100%;
+  justify-content: center;
+  display: flex;
 }
+.pokemon-text {
+  margin: auto;
+}
+.detail-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid hsla(0,0%,48%,.3);
+}
+.detail-container2 {
+  display: flex;
+  justify-content: space-around;
+  line-height: 10px;
+}
+
+/*Responsive*/
+@media (max-width: 320px) {
+	.form-login {
+    padding: 20px 23px 48px 22px;
+  }
+  .view-formulario {
+    padding: 0;
+  }
+  .container-modal {
+    width: calc(95% - 30px);
+  }
+  .modal-body {
+    padding: 20px 25px;
+  }
+  .detail-container2 {
+    line-height: 18px;
+  }
+  .container-pokemon {
+    margin: 0 0 30px 0;
+    padding: 0 5px;
+  }
+}
+
+@media (max-width: 320px) {
+	.form-login {
+    padding: 20px 23px 48px 22px;
+  }
+  .view-formulario {
+    padding: 0;
+  }
+}
+
