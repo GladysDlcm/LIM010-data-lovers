@@ -20,10 +20,10 @@ close.addEventListener('click', () => {
 });
 
 window.addEventListener('click', (event) => {
-    console.log(event.target);
-    if (event.target === flex) {
+  console.log(event.target);
+  if (event.target === flex) {
     modal.style.display = 'none';
-    }
+  }
 });
 
 // BOTONES
@@ -41,13 +41,13 @@ buttonLogin.addEventListener('click', (event) => {
     viewLogin1.classList.add('hide');
     cont = 0;
   }	else if (cont >= 2) {
-      console.log('bloqueo');
-      document.getElementById('user').value = '';
-      document.getElementById('password').value = '';
-      document.getElementById('user').disabled = true;
-      document.getElementById('password').disabled = true;
-      document.getElementById('button-login').disabled = true;
-      msgFail.innerHTML = 'Ya utilizaste todos tus intentos, en este momento no podrás ingresar.';
+    console.log('bloqueo');
+    document.getElementById('user').value = '';
+    document.getElementById('password').value = '';
+    document.getElementById('user').disabled = true;
+    document.getElementById('password').disabled = true;
+    document.getElementById('button-login').disabled = true;
+    msgFail.innerHTML = 'Ya utilizaste todos tus intentos, en este momento no podrás ingresar.';
   } else {
     cont = cont + 1;
     console.log('CLAVE INCORRECTA');
@@ -93,7 +93,7 @@ for (let i = 0; i < divItems.length; i++) {
       } else { }
     }
 
-  // Modal detalle
+    // Modal detalle
     detailHtml = `
     <div class="img-container">
       <img src="${pokemonSingle.img}"/>
@@ -113,19 +113,19 @@ for (let i = 0; i < divItems.length; i++) {
         <p>Alto: ${pokemonSingle.height}</p>
       </div>
     </div>`;
-       if(pokemonSingle.candy_count != undefined){
+    if (pokemonSingle.candy_count !== undefined) {
       detailHtml = detailHtml + 		`
       <div class="detail-container2 center-text pokemon-text">
         <div><p>${pokemonSingle.candy_count}</p>
       `;
-      }
-      detailHtml = detailHtml + `	
+    }
+    detailHtml = detailHtml + `	
         <p>${pokemonSingle.candy}</p></div>
         <div><p>${pokemonSingle.egg}</p></div>
-      </div>`;
+        </div>`;
     
-    if( pokemonSingle.next_evolution !== undefined) {
-    detailHtml = detailHtml + `
+    if (pokemonSingle.next_evolution !== undefined) {
+      detailHtml = detailHtml + `
     <div class="detail-container2 center-text pokemon-text">
     <p>Evolución: ${pokemonSingle.next_evolution[0].name}</p></div>
     `;
@@ -133,20 +133,30 @@ for (let i = 0; i < divItems.length; i++) {
     pokemonDetail.innerHTML = detailHtml;
   });
 }
-
-
-
 // funcion para ordenar a-z y z-a
 const orderPokemon = document.getElementById('ordenar-por');
 orderPokemon.addEventListener('change', () => {
-const selectOrder = ordenarPor.value;
+  const selectOrder = ordenarPor.value;
   let pokeResultSort = '';
-  if(selectOrder === '1'){
-  pokeResultSort = pokemon.sortData(pokemonData);
-  containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);}
-  else if(selectOrder==='2'){
-  pokeResultSort = pokemon.sortData(pokemonData);
-   let a=pokeResultSort.reverse();	
-   containerPokemon.innerHTML = mostrarPokemon(a);
- }
+  if (selectOrder === '1') {
+    pokeResultSort = pokemon.sortData(pokemonData);
+    containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
+  } else if (selectOrder === '2') {
+    pokeResultSort = pokemon.sortData(pokemonData);
+    let listZA = pokeResultSort.reverse() ;	
+    containerPokemon.innerHTML = mostrarPokemon(listZA);
+  } else if (selectOrder === '3') {
+    let pokeResultSort1 = pokemon.sortSpawnTime(pokemonData);
+    containerPokemon.innerHTML = mostrarPokemon(pokeResultSort1);
+  }
+}); 
+
+
+// funcion para filtrar
+const filtrarPokemon = document.getElementById('tipo-pokemones');
+filtrarPokemon.addEventListener('change', () => {
+  const selectOrder = filtrarPokemon.value;
+  let pokeResultFilter = '';
+  pokeResultFilter = pokemon.filterData(pokemonData, selectOrder);
+  containerPokemon.innerHTML = mostrarPokemon(pokeResultFilter);
 });
