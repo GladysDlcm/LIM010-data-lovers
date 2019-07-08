@@ -17,7 +17,7 @@ const dataPokemon = (data)=>{
       num: data[i].num,
       name: data[i].name,
       tipo: data[i].type
-      //evolución: data[i].next_evolution[1].name
+    
     });
   }
   return listPokemon;
@@ -41,9 +41,45 @@ const sortData = (data, sortBy) => {
     return sortedData.reverse();
   }
   return data;
-}
+};
+
+// Funcion para asc y des
+const compareSortSpawnTime = (elemA, elemB) => {
+  if (elemA.spawn_time < elemB.name)
+    return 1;
+  if (elemA.spawn_time > elemB.name)
+    return -1;
+  return 0;
+};
+
+const sortSpawnTime = (data, sortBy) => {
+  let sortedData = data.sort(compareSortSpawnTime);
+  if (sortBy === '3') {
+    return sortedData;
+  } else if (sortBy === '4') {
+    return sortedData.reverse();
+  }
+  return data;
+};
+
+
+// Fncion de validar
+const filterData = (data, condition) => {
+  let arrType = [];
+  for (let i = 0; i < data.length; i++) {
+    for (let x = 0; x < data[i].type.length; x++) {
+      if (data[i].type[x] === condition) {
+        arrType.push(data[i]);  
+      }
+    }  
+  }
+  return arrType;
+};
 
 window.pokemon = {
   dataPokemon,
-  sortData
+  sortData,
+  filterData,
+  compareSortData,
+  sortSpawnTime
 };

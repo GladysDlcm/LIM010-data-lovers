@@ -20,10 +20,10 @@ close.addEventListener('click', () => {
 });
 
 window.addEventListener('click', (event) => {
-    console.log(event.target);
-    if (event.target === flex) {
+  console.log(event.target);
+  if (event.target === flex) {
     modal.style.display = 'none';
-    }
+  }
 });
 
 // BOTONES
@@ -41,13 +41,13 @@ buttonLogin.addEventListener('click', (event) => {
     viewLogin1.classList.add('hide');
     cont = 0;
   }	else if (cont >= 2) {
-      console.log('bloqueo');
-      document.getElementById('user').value = '';
-      document.getElementById('password').value = '';
-      document.getElementById('user').disabled = true;
-      document.getElementById('password').disabled = true;
-      document.getElementById('button-login').disabled = true;
-      msgFail.innerHTML = 'Ya utilizaste todos tus intentos, en este momento no podrás ingresar.';
+    console.log('bloqueo');
+    document.getElementById('user').value = '';
+    document.getElementById('password').value = '';
+    document.getElementById('user').disabled = true;
+    document.getElementById('password').disabled = true;
+    document.getElementById('button-login').disabled = true;
+    msgFail.innerHTML = 'Ya utilizaste todos tus intentos, en este momento no podrás ingresar.';
   } else {
     cont = cont + 1;
     console.log('CLAVE INCORRECTA');
@@ -151,17 +151,37 @@ generateModal(pokemonData);
 // funcion para ordenar a-z y z-a
 const orderPokemon = document.getElementById('ordenar-por');
 orderPokemon.addEventListener('change', () => {
-const selectOrder = ordenarPor.value;
+  const selectOrder = ordenarPor.value;
   let pokeResultSort = '';
-  if(selectOrder === '1'){
-  pokeResultSort = pokemon.sortData(pokemonData);
-  containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);}
-  else if(selectOrder==='2'){
-  pokeResultSort = pokemon.sortData(pokemonData);
-   let a=pokeResultSort.reverse();	
-   containerPokemon.innerHTML = mostrarPokemon(a);
- }
-
+  let pokeResultSortSpawn='';
+  if (selectOrder === '1') {
+    pokeResultSort = pokemon.sortData(pokemonData);
+    containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
+  }
+  else if (selectOrder ==='2'){
+    pokeResultSort = pokemon.sortData(pokemonData);
+    let listZA=pokeResultSort.reverse();	
+    containerPokemon.innerHTML = mostrarPokemon(listZA);
+  }
+  else if (selectOrder === '3') {
+  pokeResultSortSpawn = pokemon.sortSpawnTime(pokemonData);	
+  containerPokemon.innerHTML = mostrarPokemon(pokeResultSortSpawn);
+  }
+  else if (selectOrder === '4'){
+    pokeResultSortSpawn = pokemon.sortSpawnTime(pokemonData);
+    containerPokemon.innerHTML = mostrarPokemon(pokeResultSortSpawn);
+  }
+  
  generateModal(pokemonData);
 
+});
+
+
+// funcion para filtrar
+const filtrarPokemon = document.getElementById('tipo-pokemones');
+filtrarPokemon.addEventListener('change', () => {
+  const selectOrder = filtrarPokemon.value;
+  let pokeResultFilter = '';
+  pokeResultFilter = pokemon.filterData(pokemonData, selectOrder);
+  containerPokemon.innerHTML = mostrarPokemon(pokeResultFilter);
 });
