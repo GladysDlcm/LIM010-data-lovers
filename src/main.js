@@ -72,68 +72,80 @@ const mostrarPokemon = (data) => {
   return showPokemon;
 };
 
-// detalle de los pokemones
-containerPokemon.innerHTML = mostrarPokemon(pokemonData);
+// función mostrar ventana modal con pokemons
+const generateModal = (data) =>{
 
-let divItems = containerPokemon.getElementsByTagName('div');
+  let divItems = containerPokemon.getElementsByTagName('div');
 
-for (let i = 0; i < divItems.length; i++) {
-  let pokemonItem = document.getElementById(divItems[i].getAttribute('id'));
-  console.log(pokemonItem);
-  pokemonItem.addEventListener('click', () => {
-    let pokemonId = parseInt(pokemonItem.getAttribute('id'));
-    modal.style.display = 'block';
-    let pokemonDetail = document.getElementById('pokemon-detail');
-    let detailHtml = '';
-    let pokemonSingle = null;
-    console.log(pokemonId);
-    for (let j = 0; j < pokemonData.length; j++) {
-      if (pokemonData[j].id === pokemonId) {
-        pokemonSingle = pokemonData[j];
-      } else { }
-    }
-
-  // Modal detalle
-    detailHtml = `
-    <div class="img-container">
-      <img src="${pokemonSingle.img}"/>
-    </div>
-    <div class="pokemon-text center-text"> 
-      <h1>${pokemonSingle.name}</h1>
-      <span># ${pokemonSingle.num}</span>
-    </div> 
-    <div class="detail-container">
-      <div>
-        <p>Peso: ${pokemonSingle.weight}</p>
+  for (let i = 0; i < divItems.length; i++) {
+    let divItem = document.getElementById(divItems[i].getAttribute('id'));
+    console.log(divItem);
+    divItem.addEventListener('click', () => {
+      let pokemonId = parseInt(divItem.getAttribute('id'));
+      modal.style.display = 'block';
+      let pokemonDetail = document.getElementById('pokemon-detail');
+      let detailHtml = '';
+      let pokemonSingle = null;
+      console.log(pokemonId);
+      for (let j = 0; j < data.length; j++) {
+        if (data[j].id === pokemonId) {
+          pokemonSingle = data[j];
+        } else { }
+      }
+  
+    // Modal detalle
+      detailHtml = `
+      <div class="img-container">
+        <img src="${pokemonSingle.img}"/>
       </div>
-      <div>
-        <p>${pokemonSingle.type}</p>
-      </div>
-      <div>
-        <p>Alto: ${pokemonSingle.height}</p>
-      </div>
-    </div>`;
-       if(pokemonSingle.candy_count != undefined){
-      detailHtml = detailHtml + 		`
+      <div class="pokemon-text center-text"> 
+        <h1>${pokemonSingle.name}</h1>
+        <span># ${pokemonSingle.num}</span>
+      </div> 
+      <div class="detail-container">
+        <div class="center-text center-text-two">
+          <p class="data-number">${pokemonSingle.weight}</p>
+          <p class="data-text">Peso</p>
+        </div>
+        <div class="center-text center-text-two">
+          <img class="type-icon" src="img/grass.png">
+          <img class="type-icon" src="img/poison.png">
+          <p class="data-text">${pokemonSingle.type}</p>
+        </div>
+        <div class="center-text center-text-two">
+          <p class="data-number">${pokemonSingle.height}</p>
+          <p class="data-text">Altura</p>
+        </div>
+      </div>`;
+         if(pokemonSingle.candy_count != undefined){
+        detailHtml = detailHtml + 		`
+        <div class="detail-container2 center-text pokemon-text">
+          <div>
+          <img class="type-icon" src="img/candy.png">
+          <p>${pokemonSingle.candy_count}</p>
+        `;
+        }
+        detailHtml = detailHtml + `	
+          <p>${pokemonSingle.candy}</p></div>
+          <div><p>${pokemonSingle.egg}</p></div>
+        </div>`;
+      
+      if( pokemonSingle.next_evolution !== undefined) {
+      detailHtml = detailHtml + `
       <div class="detail-container2 center-text pokemon-text">
-        <div><p>${pokemonSingle.candy_count}</p>
+      <p>Evolución: ${pokemonSingle.next_evolution[0].name}</p></div>
       `;
       }
-      detailHtml = detailHtml + `	
-        <p>${pokemonSingle.candy}</p></div>
-        <div><p>${pokemonSingle.egg}</p></div>
-      </div>`;
-    
-    if( pokemonSingle.next_evolution !== undefined) {
-    detailHtml = detailHtml + `
-    <div class="detail-container2 center-text pokemon-text">
-    <p>Evolución: ${pokemonSingle.next_evolution[0].name}</p></div>
-    `;
-    }
-    pokemonDetail.innerHTML = detailHtml;
-  });
+      pokemonDetail.innerHTML = detailHtml;
+    });
+  }
+
 }
 
+
+containerPokemon.innerHTML = mostrarPokemon(pokemonData);
+// detalle de los pokemones
+generateModal(pokemonData);
 
 
 // funcion para ordenar a-z y z-a
@@ -149,4 +161,7 @@ const selectOrder = ordenarPor.value;
    let a=pokeResultSort.reverse();	
    containerPokemon.innerHTML = mostrarPokemon(a);
  }
+
+ generateModal(pokemonData);
+
 });

@@ -13,9 +13,10 @@ body {
 }
 h1 {
   color: #155eaa;
-  font-size: 20px;
+  font-size: 25px;
   line-height: 1.1rem;
-  font-weight: 800;
+  font-weight: 900;
+  font-family: 'Lato', sans-serif;
 }
 h2 {
   color: #ffffff;
@@ -73,6 +74,9 @@ p {
   text-align: center;
   max-width: 700px;
   margin: 20px auto;
+}
+.center-text-two {
+  line-height: 8px;
 }
 .hide {
 	display: none;
@@ -273,6 +277,11 @@ fa-user-circle {
 fa-user-circle {
 	padding-right: 30px!important;
 }
+.type-icon {
+  max-width: 25%;
+  margin: 0 auto;
+  justify-content: space-around;
+}
 
 /*Modal*/
 .flex{
@@ -300,7 +309,8 @@ fa-user-circle {
   max-width: 64rem;
   margin: 30px auto;
 	position: relative;
-	background-color: #fefefe;
+	background: rgb(250,249,255);
+  background: linear-gradient(to bottom, rgb(250,249,255) 0%, rgb(224,220,253) 100%);
 	box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
 	animation-name: modal;
   animation-duration: 1s;
@@ -337,6 +347,19 @@ fa-user-circle {
   justify-content: center;
   display: flex;
 }
+.data-number {
+  color: #155eaa;
+  font-weight: 900;
+  font-size: 18px;
+  font-family: 'Lato', sans-serif;
+}
+.data-text {
+  color: #666666;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+}
 .pokemon-text {
   margin: auto;
 }
@@ -372,14 +395,13 @@ fa-user-circle {
     margin: 0 0 30px 0;
     padding: 0 5px;
   }
-}
-
-@media (max-width: 320px) {
-	.form-login {
-    padding: 20px 23px 48px 22px;
+  .data-text {
+    font-size: 14px;
+    letter-spacing: 0px;
   }
-  .view-formulario {
-    padding: 0;
+  .data-number {
+    font-size: 14px;
+    line-height: 1;
   }
 }
 
