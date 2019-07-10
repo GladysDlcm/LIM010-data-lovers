@@ -134,7 +134,7 @@ label {
 
 /*Second View*/
 .bg-home {
-  background-image: url(img/wavy-dots.png);
+  background-image: url(img/stripes-light.png);
 }
 .menu {
   background-color: #2e51a2;
@@ -349,7 +349,7 @@ fa-user-circle {
 
 /*Pokemones Detalles*/
 .img-container {
-  width: 100%;
+  /*width: 100%*/
   justify-content: center;
   display: flex;
 }
