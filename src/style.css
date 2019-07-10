@@ -423,5 +423,64 @@ fa-user-circle {
     font-size: 14px;
     line-height: 1;
   }
+
+  /*filtros*/
+  header label{
+    display: block !important;
+  }
+  .menu1{
+    position: absolute;
+    background: #003078;
+    margin-left: -70%
+  }
+  .menu1 ul{
+    flex-direction: column;
+  }
+  #btn-menu:checked ~ .menu1{
+    margin:0;
+  
+
+}
+
+body{
+  margin:0;
+  font-family: sans-serif;
+}
+header #cabecera {
+  width: 100%;
+  background: #003078;
+}
+
+#btn-menu{
+  display: none;
+}
+
+header label{
+  display: none;
+  width: 30;
+  height: 30;
+  padding: 10;
+}
+
+header label:hover{
+  cursor: pointer;
+  background: rgba(0,0,0,.03);
+}
+
+.menu1 ul{
+  margin:0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.menu1 li:hover{
+  background: rgba(0,0,0,.03);
+}
+.menu1 li a{
+display: block;
+padding: 15px 20px;
+color:#fff;
+text-decoration: none;
 }
 

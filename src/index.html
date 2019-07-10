@@ -9,6 +9,11 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </head>
   <body>
     <main>
@@ -36,13 +41,30 @@
       <section class="hide" id="view-pokemon"> 
           <div class="bg-home">
             <header class="site-header">
-              <div></div>
-              <img class="logo" src="img/poke-data-logo.png" alt="Logo">
               <div>
-                  <h2 class="center-text">¡Toda la Poke data que buscabas la encuentras aquí!</h2>
-                  <h3 class="center-text">¡Bienvenido entrenador Pokémon!</h3>
+                <img class="logo" src="img/poke-data-logo.png" alt="Logo">
+                <div>
+                    <h2 class="center-text">¡Toda la Poke data que buscabas la encuentras aquí!</h2>
+                    <h3 class="center-text">¡Bienvenido entrenador Pokémon!</h3>
+                </div>
               </div>
+              <div id="cabecera">
+                <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"><a href="#">
+                  <span class="glyphicon glyphicon-home"></span>
+                </a></label>
+                <nav class="menu1">
+                  <ul>
+                    <li><a href="">TIPO</a></li>
+                    
+                    <li><a href="">DEBILIDADES</a></li>
+                    <li><a href="">ORDENAR  POR</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <!--codigo de filtro-->
             </header>
+           <!--
             <div class="menu">
               <i class="fas fa-user-circle"></i>
               <h5 id="user1">Hola LABORATORIA</h5>
@@ -98,7 +120,7 @@
                     <option value="3">Aparece más</option>
                     <option value="4">Aparece menos</option>
                 </select>
-            </div>
+            </div>-->
             <div id="container-pokemon" class="pokemons"></div>
             <div id="poke-modal" class="modal">
               <div class="flex" id="flex">

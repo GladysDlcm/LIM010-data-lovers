@@ -185,6 +185,30 @@ orderPokemon.addEventListener('change', () => {
   const selectOrder = ordenarPor.value;
   let pokeResultSort = '';
   let pokeResultSortSpawn='';
+ 
+
+  switch (selectOrder){
+    case '1': 
+      pokeResultSort = pokemon.sortData(pokemonData);
+      containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
+      break;
+    case '2':
+      pokeResultSort = pokemon.sortData(pokemonData);
+      let listZA = pokeResultSort.reverse();	
+      containerPokemon.innerHTML = mostrarPokemon(listZA);
+      break;
+    case '3':
+      pokeResultSortSpawn = pokemon.sortSpawnTime(pokemonData);	
+      containerPokemon.innerHTML = mostrarPokemon(pokeResultSortSpawn);
+      
+    case '4':
+      pokeResultSortSpawn = pokemon.sortSpawnTime(pokemonData);
+      let listDes = pokeResultSortSpawn.reverse();	
+      containerPokemon.innerHTML = mostrarPokemon(listDes);    
+  }
+  generateModal(pokemonData);
+});  
+  /*
   if (selectOrder === '1') {
     pokeResultSort = pokemon.sortData(pokemonData);
     containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
@@ -195,17 +219,14 @@ orderPokemon.addEventListener('change', () => {
     containerPokemon.innerHTML = mostrarPokemon(listZA);
   }
   else if (selectOrder === '3') {
-  pokeResultSortSpawn = pokemon.sortSpawnTime(pokemonData);	
+  let pokeResultSortSpawn = pokemon.sortSpawnTime(pokemonData);	
   containerPokemon.innerHTML = mostrarPokemon(pokeResultSortSpawn);
   }
-  else if (selectOrder === '4'){
-    pokeResultSortSpawn = pokemon.sortSpawnTime(pokemonData);
-    containerPokemon.innerHTML = mostrarPokemon(pokeResultSortSpawn);
-  }
-  
- generateModal(pokemonData);
+  else
+  console.log("Hola");
+  generateModal(pokemonData);
 
-});
+});*/
 
 
 // función para filtrar por tipo
