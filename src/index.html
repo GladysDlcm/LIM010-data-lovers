@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="stylesheet" href="fonts.css">
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </head>
   <body>
     <main>
@@ -48,12 +48,23 @@
                     <h3 class="center-text">¡Bienvenido entrenador Pokémon!</h3>
                 </div>
               </div>
-              <div>
-
+              <div id="cabecera">
+                <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"><a href="#">
+                  <span class="glyphicon glyphicon-home"></span>
+                </a></label>
+                <nav class="menu1">
+                  <ul>
+                    <li><a href="">TIPO</a></li>
+                    
+                    <li><a href="">DEBILIDADES</a></li>
+                    <li><a href="">ORDENAR  POR</a></li>
+                  </ul>
+                </nav>
               </div>
               <!--codigo de filtro-->
             </header>
-           
+           <!--
             <div class="menu">
               <i class="fas fa-user-circle"></i>
               <h5 id="user1">Hola LABORATORIA</h5>
@@ -62,45 +73,45 @@
             <div class="container-pokemon">
                 <select id="tipo-pokemones" class="dropdown">
                     <option value="" disabled selected>Tipo</option>
-                    <option value="">Acero</option>
+                    <option value="Steel">Acero</option>
                     <option value="Water">Agua</option>
                     <option value="Bug">Bicho</option>
                     <option value="Dragon">Dragón</option>
                     <option value="Electric">Eléctrico</option>
                     <option value="Ghost">Fantasma</option>
                     <option value="Fire">Fuego</option>
-                    <option value="">Hada</option>
+                    <option value="Fairy">Hada</option>
                     <option value="Ice">Hielo</option>
                     <option value="Fighting">Lucha</option>
                     <option value="Normal">Normal</option>
                     <option value="Grass">Planta</option>
                     <option value="Psychic">Psíquico</option>
-                    <option value="">Roca</option>
-                    <option value="">Siniestro</option>
+                    <option value="Rock">Roca</option>
+                    <option value="Dark">Siniestro</option>
                     <option value="Ground">Tierra</option>
                     <option value="Poison">Veneno</option>
                     <option value="Flying">Volador</option>
                 </select>
-                <select class="dropdown" >
+                <select id="debilidades" class="dropdown" >
                     <option value="" disabled selected>Debilidad</option>
-                    <option value="">Acero</option>
-                    <option value="">Agua</option>
-                    <option value="">Bicho</option>
-                    <option value="">Dragón</option>
-                    <option value="">Eléctrico</option>
-                    <option value="">Fantasma</option>
-                    <option value="">Fuego</option>
-                    <option value="">Hada</option>
-                    <option value="">Hielo</option>
-                    <option value="">Lucha</option>
-                    <option value="">Normal</option>
-                    <option value="">Planta</option>
-                    <option value="">Psíquico</option>
-                    <option value="">Roca</option>
-                    <option value="">Siniestro</option>
-                    <option value="">Tierra</option>
-                    <option value="">Veneno</option>
-                    <option value="">Volador</option>
+                    <option value="Steel">Acero</option>
+                    <option value="Water">Agua</option>
+                    <option value="Bug">Bicho</option>
+                    <option value="Dragon">Dragón</option>
+                    <option value="Electric">Eléctrico</option>
+                    <option value="Ghost">Fantasma</option>
+                    <option value="Fire">Fuego</option>
+                    <option value="Fairy">Hada</option>
+                    <option value="Ice">Hielo</option>
+                    <option value="Fighting">Lucha</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Grass">Planta</option>
+                    <option value="Psychic">Psíquico</option>
+                    <option value="Rock">Roca</option>
+                    <option value="Dark">Siniestro</option>
+                    <option value="Ground">Tierra</option>
+                    <option value="Poison">Veneno</option>
+                    <option value="Flying">Volador</option>
                 </select>
                 <select class="dropdown" id="ordenar-por" >
                     <option value="" disabled selected>Ordenar por</option>
@@ -109,7 +120,7 @@
                     <option value="3">Aparece más</option>
                     <option value="4">Aparece menos</option>
                 </select>
-            </div>
+            </div>-->
             <div id="container-pokemon" class="pokemons"></div>
             <div id="poke-modal" class="modal">
               <div class="flex" id="flex">

@@ -43,7 +43,7 @@ const sortData = (data, sortBy) => {
   return data;
 };
 
-// Funcion para asc y des
+// Función para asc y des
 const compareSortSpawnTime = (elemA, elemB) => {
   if (elemA.spawn_time < elemB.name)
     return 1;
@@ -63,7 +63,7 @@ const sortSpawnTime = (data, sortBy) => {
 };
 
 
-// Fncion de validar
+// Función de validar
 const filterData = (data, condition) => {
   let arrType = [];
   for (let i = 0; i < data.length; i++) {
@@ -76,10 +76,23 @@ const filterData = (data, condition) => {
   return arrType;
 };
 
+const filterDataWeaknesses = (data, condition) => {
+  let arrWeaknesses = [];
+  for (let i = 0; i < data.length; i++) {
+    for (let x = 0; x < data[i].weaknesses.length; x++) {
+      if (data[i].weaknesses[x] === condition) {
+        arrWeaknesses.push(data[i]);  
+      }
+    }  
+  }
+  return arrWeaknesses;
+};
+
 window.pokemon = {
   dataPokemon,
   sortData,
   filterData,
+  filterDataWeaknesses,
   compareSortData,
   sortSpawnTime
 };
