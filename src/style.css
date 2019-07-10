@@ -45,7 +45,7 @@ h5 {
   font-weight: 600;
 }
 p {
-  font-size: 14px;
+  font-size: 13px;
 }
 .site-header {
   margin: 0 auto;
@@ -73,10 +73,10 @@ p {
 .center-text {
   text-align: center;
   max-width: 700px;
-  margin: 20px auto;
+  margin: 20px auto 10px;
 }
 .center-text-two {
-  line-height: 8px;
+  line-height: 5px;
 }
 .hide {
 	display: none;
@@ -251,7 +251,7 @@ select {
   flex-wrap: wrap;
   display: flex;
   margin: 0px auto;
-  width: 1280px;
+  width: 1024px;
   max-width: 100%;
   justify-content: center;
 }
@@ -278,9 +278,15 @@ fa-user-circle {
 	padding-right: 30px!important;
 }
 .type-icon {
-  max-width: 25%;
+  max-width: 50%;
   margin: 0 auto;
   justify-content: space-around;
+}
+.caramel-icon {
+  max-width: 20%;
+  margin: 0px auto;
+  float: left;
+  padding: 10px 0px 5px 30px;
 }
 
 /*Modal*/
@@ -355,13 +361,23 @@ fa-user-circle {
 }
 .data-text {
   color: #666666;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
   letter-spacing: 1px;
 }
 .pokemon-text {
+  padding: 0px 20px 0px 20px;
   margin: auto;
+}
+.pokemon-text-second {
+  padding: 0px 30px 0px 10px;
+  line-height: 5px;
+}
+.pokemon-text-third {
+  margin: 4px auto;
+  padding: 0px;
+  line-height: 1.5;
 }
 .detail-container {
   display: flex;
@@ -372,6 +388,7 @@ fa-user-circle {
   display: flex;
   justify-content: space-around;
   line-height: 10px;
+  padding: 0px;
 }
 
 /*Responsive*/
@@ -386,7 +403,10 @@ fa-user-circle {
     width: calc(95% - 30px);
   }
   .modal-body {
-    padding: 20px 25px;
+    padding: 0px 10px;
+  }
+  .modal-header {
+    padding: 0px 16px;
   }
   .detail-container2 {
     line-height: 18px;

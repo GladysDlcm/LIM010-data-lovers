@@ -63,9 +63,9 @@ const mostrarPokemon = (data) => {
     let showP = `
         <div id="${data[j].id}" class="pokemons-item">
             <img src="${data[j].img}"/>
-            <figcaption >${data[j].num}</figcaption >
+            <figcaption>N.º ${data[j].num}</figcaption >
             <h4 class="pokemon-text">${data[j].name}</h4>
-            <figcaption >${data[j].type}</figcaption >
+            <figcaption>${data[j].type}</figcaption >
         </div>`;
     showPokemon = showPokemon + showP;
   }
@@ -107,11 +107,38 @@ const generateModal = (data) =>{
           <p class="data-number">${pokemonSingle.weight}</p>
           <p class="data-text">Peso</p>
         </div>
-        <div class="center-text center-text-two">
-          <img class="type-icon" src="img/grass.png">
-          <img class="type-icon" src="img/poison.png">
-          <p class="data-text">${pokemonSingle.type}</p>
-        </div>
+        <div class="center-text center-text-two">`;
+         
+        for(let i=0; i < pokemonSingle.type.length; i++){
+
+          let imageFile ="";
+
+          switch(pokemonSingle.type[i]){
+            case "Steel" : imageFile ="steel.png"; break;
+            case "Water" : imageFile ="water.png"; break;
+            case "Bug" : imageFile ="bug.png"; break;
+            case "Dragon" : imageFile ="dragon.png"; break;
+            case "Electric" : imageFile ="electric.png"; break;
+            case "Ghost" : imageFile ="ghost.png"; break;
+            case "Fire" : imageFile ="fire.png"; break;
+            case "Fairy" : imageFile ="fairy.png"; break; 
+            case "Ice" : imageFile ="ice.png"; break;
+            case "Fighting" : imageFile ="fighting.png"; break;
+            case "Normal" : imageFile ="normal.png"; break;
+            case "Grass" : imageFile ="grass.png"; break; 
+            case "Psychic" : imageFile ="psychic.png"; break;fighting
+            case "Rock" : imageFile ="rock.png"; break;
+            case "Dark" : imageFile ="dark.png"; break;
+            case "Ground" : imageFile ="ground.png"; break;  
+            case "Poison" : imageFile ="poison.png"; break;
+            case "Flying" : imageFile ="flying.png"; break;          
+          }
+          detailHtml = detailHtml +   `
+          <img class="type-icon" src="img/${imageFile}">
+          <p class="data-text">${pokemonSingle.type[i]}</p>`
+        }
+
+          detailHtml = detailHtml +   `</div>
         <div class="center-text center-text-two">
           <p class="data-number">${pokemonSingle.height}</p>
           <p class="data-text">Altura</p>
@@ -121,13 +148,17 @@ const generateModal = (data) =>{
         detailHtml = detailHtml + 		`
         <div class="detail-container2 center-text pokemon-text">
           <div>
-          <img class="type-icon" src="img/candy.png">
-          <p>${pokemonSingle.candy_count}</p>
+            
+            <img class="caramel-icon" src="img/candy.png">
+            <p class="pokemon-text-second data-number">${pokemonSingle.candy_count}</p>
+            <p class="pokemon-text-third data-text">${pokemonSingle.candy}</p>
+          </div>
         `;
         }
         detailHtml = detailHtml + `	
-          <p>${pokemonSingle.candy}</p></div>
-          <div><p>${pokemonSingle.egg}</p></div>
+          <div>
+            <p>${pokemonSingle.egg}</p>
+          </div>
         </div>`;
       
       if( pokemonSingle.next_evolution !== undefined) {
@@ -177,11 +208,24 @@ orderPokemon.addEventListener('change', () => {
 });
 
 
-// funcion para filtrar
+// función para filtrar por tipo
 const filtrarPokemon = document.getElementById('tipo-pokemones');
 filtrarPokemon.addEventListener('change', () => {
   const selectOrder = filtrarPokemon.value;
   let pokeResultFilter = '';
   pokeResultFilter = pokemon.filterData(pokemonData, selectOrder);
   containerPokemon.innerHTML = mostrarPokemon(pokeResultFilter);
+
+  generateModal(pokemonData);
+});
+
+// función para filtrar debilidades
+const filterWeaknesses = document.getElementById('debilidades');
+filterWeaknesses.addEventListener('change', () => {
+  const selectOrder = filterWeaknesses.value;
+  let pokeResultFilter = '';
+  pokeResultFilter = pokemon.filterDataWeaknesses(pokemonData, selectOrder);
+  containerPokemon.innerHTML = mostrarPokemon(pokeResultFilter);
+
+  generateModal(pokemonData);
 });
