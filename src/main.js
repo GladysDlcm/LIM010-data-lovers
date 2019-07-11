@@ -12,6 +12,7 @@ let flex = document.getElementById('flex');
 let close = document.getElementById('close');
 const OrderAz = document.getElementById('OrderAz');
 const ordenarPor = document.getElementById('ordenar-por');
+const typeEgg=document.getElementById('tipo-huevo');
 
 let cont = 0;
 
@@ -208,25 +209,6 @@ orderPokemon.addEventListener('change', () => {
   }
   generateModal(pokemonData);
 });  
-  /*
-  if (selectOrder === '1') {
-    pokeResultSort = pokemon.sortData(pokemonData);
-    containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
-  }
-  else if (selectOrder ==='2'){
-    pokeResultSort = pokemon.sortData(pokemonData);
-    let listZA=pokeResultSort.reverse();	
-    containerPokemon.innerHTML = mostrarPokemon(listZA);
-  }
-  else if (selectOrder === '3') {
-  let pokeResultSortSpawn = pokemon.sortSpawnTime(pokemonData);	
-  containerPokemon.innerHTML = mostrarPokemon(pokeResultSortSpawn);
-  }
-  else
-  console.log("Hola");
-  generateModal(pokemonData);
-
-});*/
 
 
 // función para filtrar por tipo
@@ -250,3 +232,16 @@ filterWeaknesses.addEventListener('change', () => {
 
   generateModal(pokemonData);
 });
+
+// Funcion para cacular huevo
+typeEgg.addEventListener('change',()=>{
+  const selectTypeEgg=typeEgg.value;
+  let resultEgg='';
+  let textEgg=document.getElementById('text-eggs');
+  resultEgg=pokemon.contEggs(pokemonData, selectTypeEgg);
+   let x=filHuevo(pokemonData,selectTypeEgg);
+   textEgg.innerHTML='Pokemones que tienen huevos de ' + selectTypeEgg + ' en la region Kanto son  ' + resultEgg + '%'
+   containerPokemon.innerHTML= mostrarPokemon(x);
+ 
+  generateModal(pokemonData);
+} );
