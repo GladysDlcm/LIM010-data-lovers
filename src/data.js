@@ -89,34 +89,32 @@ const filterDataWeaknesses = (data, condition) => {
   return arrWeaknesses;
 };
 
-//funcion para calcular por tipo de huevo
-const contEggs=(data, tipoEgg)=>{
-let contE=0;
-let numTypeEgg;
-let porcentajeEgg;
-data.filter((lisP)=>{
+// funcion para calcular por tipo de huevo
+const contEggs = (data, tipoEgg)=>{
+  let contE = 0;
+  let numTypeEgg;
+  let porcentajeEgg;
+  data.filter((lisP) =>{
 
-if(lisP.egg===tipoEgg){
-contE++;
-
-numTypeEgg=(contE*100)/data.length;
-porcentajeEgg=numTypeEgg.toFixed(2);
-  }
-});
-return porcentajeEgg;
+    if (lisP.egg === tipoEgg) {
+      contE++;
+      numTypeEgg = (contE * 100) / data.length;
+      porcentajeEgg = numTypeEgg.toFixed(2);
+    }
+  });
+  return porcentajeEgg;
 };
 
 // Funcion para filtrar por tipo de huevo
-const filHuevo=(data,tipoE)=>{
-  let listMostrarP=[];
-  for(let i=0; i<data.length; i++){
-       if(data[i].egg===tipoE){
+const filHuevo = (data,tipoE) =>{
+  let listMostrarP = [];
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].egg === tipoE) {
       listMostrarP.push(data[i]);
-    
-  }
+    }
   }
   return listMostrarP;
-}
+};
 
 
 window.pokemon = {
