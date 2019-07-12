@@ -13,6 +13,9 @@ let close = document.getElementById('close');
 const OrderAz = document.getElementById('OrderAz');
 const ordenarPor = document.getElementById('ordenar-por');
 const typeEgg = document.getElementById('tipo-huevo');
+const footer = document.getElementById('footer-page');
+
+footer.classList.add('hide');
 
 let cont = 0;
 
@@ -40,6 +43,7 @@ buttonLogin.addEventListener('click', (event) => {
   if (userLogin === 'LABORATORIA' && passwordLogin === 'LABORATORIA') {
     viewPokemon.classList.add('show');
     viewLogin1.classList.add('hide');
+    footer.classList.add('show');
     cont = 0;
   }	else if (cont >= 2) {
     console.log('bloqueo');
@@ -66,9 +70,38 @@ const mostrarPokemon = (data) => {
             <img src="${data[j].img}"/>
             <figcaption>N.º ${data[j].num}</figcaption >
             <h4 class="pokemon-text">${data[j].name}</h4>
-            <figcaption>${data[j].type}</figcaption >
-        </div>`;
-    showPokemon = showPokemon + showP;
+            `;
+            for(let i=0; i < data[j].type.length; i++){
+
+              let imageFile ="";
+    
+              switch(data[j].type[i]){
+                case "Steel" : imageFile ="steel.png"; break;
+                case "Water" : imageFile ="water.png"; break;
+                case "Bug" : imageFile ="bug.png"; break;
+                case "Dragon" : imageFile ="dragon.png"; break;
+                case "Electric" : imageFile ="electric.png"; break;
+                case "Ghost" : imageFile ="ghost.png"; break;
+                case "Fire" : imageFile ="fire.png"; break;
+                case "Fairy" : imageFile ="fairy.png"; break; 
+                case "Ice" : imageFile ="ice.png"; break;
+                case "Fighting" : imageFile ="fighting.png"; break;
+                case "Normal" : imageFile ="normal.png"; break;
+                case "Grass" : imageFile ="grass.png"; break; 
+                case "Psychic" : imageFile ="psychic.png"; break;fighting
+                case "Rock" : imageFile ="rock.png"; break;
+                case "Dark" : imageFile ="dark.png"; break;
+                case "Ground" : imageFile ="ground.png"; break;  
+                case "Poison" : imageFile ="poison.png"; break;
+                case "Flying" : imageFile ="flying.png"; break;          
+              }
+          showP = showP + 
+              `<img class="type-icon-main" src="img/${imageFile}">
+                <p class="data-text-main">${data[j].type[i]}</p>`
+  }
+  showP = showP + `
+      </div>`;
+  showPokemon = showPokemon + showP;
   }
   return showPokemon;
 };
