@@ -68,7 +68,7 @@ const mostrarPokemon = (data) => {
     let showP = `
         <div id="${data[j].id}" class="pokemons-item">
             <img src="${data[j].img}"/>
-            <figcaption>N.º ${data[j].num}</figcaption >
+            <figcaption class="data-text">N.º ${data[j].num}</figcaption >
             <h4 class="pokemon-text">${data[j].name}</h4>
             `;
             for(let i=0; i < data[j].type.length; i++){
@@ -134,7 +134,7 @@ const generateModal = (data) =>{
       </div>
       <div class="pokemon-text center-text"> 
         <h1>${pokemonSingle.name}</h1>
-        <span># ${pokemonSingle.num}</span>
+        <span class="pokemon-text-two data-text">N.º ${pokemonSingle.num}</span>
       </div> 
       <div class="detail-container">
         <div class="center-text center-text-two">
@@ -183,22 +183,28 @@ const generateModal = (data) =>{
             
             <img class="caramel-icon" src="img/candy.png">
             <p class="pokemon-text-second data-number">${pokemonSingle.candy_count}</p>
-            <p class="pokemon-text-third data-text">${pokemonSingle.candy}</p>
+            <p class="pokemon-text-third data-text">Caramelos</p>
           </div>
         `;
       }
       detailHtml = detailHtml + `	
           <div>
-            <p>${pokemonSingle.egg}</p>
+            <p class="pokemon-text-second data-number">${pokemonSingle.egg}</p>
+            <p class="pokemon-text-third data-text">Huevos</p>
           </div>
         </div>`;
       
       if ( pokemonSingle.next_evolution !== undefined) {
       detailHtml = detailHtml + `
-      <div class="detail-container2 center-text pokemon-text">
-      <p>Evolución: ${pokemonSingle.next_evolution[0].name}</p></div>
+      <div class="detail-container3 center-text pokemon-text">
+      <p class="pokemon-text-four data-text"><strong>Evolución:</strong> ${pokemonSingle.next_evolution[0].name}</p></div>
       `;
       }
+      detailHtml = detailHtml +   `</div>
+        <div class="detail-container3 center-text pokemon-text">
+          <p class="pokemon-text-four data-text"><strong>Debilidades:</strong> ${pokemonSingle.weaknesses}</p>
+        </div>
+      </div>`;
       pokemonDetail.innerHTML = detailHtml;
     });
   }
@@ -270,7 +276,7 @@ typeEgg.addEventListener('change', ()=>{
   let textEgg = document.getElementById('text-eggs');
   resultEgg = pokemon.contEggs(pokemonData, selectTypeEgg);
   let x = filHuevo(pokemonData, selectTypeEgg);
-  textEgg.innerHTML = 'Pokemones que tienen huevos de ' + selectTypeEgg + ' en la region Kanto son  ' + resultEgg + '%';
+  textEgg.innerHTML = '<div class="data-egg"><h5>Pokemones que aparecen en huevos de <span><img class="egg-icon" src="img/egg.png">' + selectTypeEgg + '</span> en la región Kanto son  <span>' + resultEgg + '%</span> del total.</h5></div>';
   containerPokemon.innerHTML = mostrarPokemon(x);
  
   generateModal(pokemonData);
