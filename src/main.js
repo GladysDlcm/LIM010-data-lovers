@@ -14,14 +14,9 @@ const OrderAz = document.getElementById('OrderAz');
 const ordenarPor = document.getElementById('ordenar-por');
 const typeEgg = document.getElementById('tipo-huevo');
 let textEgg = document.getElementById('text-eggs');
+const footer = document.getElementById('footer-page');
 
-// un nuevo objeto
-const newObjet={
-      newTipo: '',
-      newDebi:'',
-      newOrdenar:''
-      }
-
+footer.classList.add('hide');
 let cont = 0;
 
 close.addEventListener('click', () => {
@@ -48,6 +43,7 @@ buttonLogin.addEventListener('click', (event) => {
   if (userLogin === 'LABORATORIA' && passwordLogin === 'LABORATORIA') {
     viewPokemon.classList.add('show');
     viewLogin1.classList.add('hide');
+    footer.classList.add('show');
     cont = 0;
   }	else if (cont >= 2) {
     console.log('bloqueo');
@@ -72,14 +68,44 @@ const mostrarPokemon = (data) => {
     let showP = `
         <div id="${data[j].id}" class="pokemons-item">
             <img src="${data[j].img}"/>
-            <figcaption>N.º ${data[j].num}</figcaption >
+            <figcaption class="data-text">N.º ${data[j].num}</figcaption >
             <h4 class="pokemon-text">${data[j].name}</h4>
-            <figcaption>${data[j].type}</figcaption >
-        </div>`;
-    showPokemon = showPokemon + showP;
+            `;
+            for(let i=0; i < data[j].type.length; i++){
+
+              let imageFile ="";
+    
+              switch(data[j].type[i]){
+                case "Steel" : imageFile ="steel.png"; break;
+                case "Water" : imageFile ="water.png"; break;
+                case "Bug" : imageFile ="bug.png"; break;
+                case "Dragon" : imageFile ="dragon.png"; break;
+                case "Electric" : imageFile ="electric.png"; break;
+                case "Ghost" : imageFile ="ghost.png"; break;
+                case "Fire" : imageFile ="fire.png"; break;
+                case "Fairy" : imageFile ="fairy.png"; break; 
+                case "Ice" : imageFile ="ice.png"; break;
+                case "Fighting" : imageFile ="fighting.png"; break;
+                case "Normal" : imageFile ="normal.png"; break;
+                case "Grass" : imageFile ="grass.png"; break; 
+                case "Psychic" : imageFile ="psychic.png"; break;fighting
+                case "Rock" : imageFile ="rock.png"; break;
+                case "Dark" : imageFile ="dark.png"; break;
+                case "Ground" : imageFile ="ground.png"; break;  
+                case "Poison" : imageFile ="poison.png"; break;
+                case "Flying" : imageFile ="flying.png"; break;          
+              }
+          showP = showP + 
+              `<img class="type-icon-main" src="img/${imageFile}">
+                <p class="data-text-main">${data[j].type[i]}</p>`
+  }
+  showP = showP + `
+      </div>`;
+  showPokemon = showPokemon + showP;
   }
   return showPokemon;
 };
+
 
 // Función mostrar ventana modal con pokemons
 const generateModal = (data) =>{
@@ -109,8 +135,8 @@ const generateModal = (data) =>{
       </div>
       <div class="pokemon-text center-text"> 
         <h1>${pokemonSingle.name}</h1>
-        <span># ${pokemonSingle.num}</span>
-      </div> 
+        <span class="pokemon-text-two data-text">N.º ${pokemonSingle.num}</span>
+      </div>  
       <div class="detail-container">
         <div class="center-text center-text-two">
           <p class="data-number">${pokemonSingle.weight}</p>
@@ -158,22 +184,28 @@ const generateModal = (data) =>{
             
             <img class="caramel-icon" src="img/candy.png">
             <p class="pokemon-text-second data-number">${pokemonSingle.candy_count}</p>
-            <p class="pokemon-text-third data-text">${pokemonSingle.candy}</p>
-          </div>
+            <p class="pokemon-text-third data-text">Caramelos</p>
+            </div>
         `;
       }
       detailHtml = detailHtml + `	
-          <div>
-            <p>${pokemonSingle.egg}</p>
-          </div>
-        </div>`;
+      <div>
+      <p class="pokemon-text-second data-number">${pokemonSingle.egg}</p>
+      <p class="pokemon-text-third data-text">Huevos</p>
+      </div>
+    </div>`;
       
       if ( pokemonSingle.next_evolution !== undefined) {
       detailHtml = detailHtml + `
-      <div class="detail-container2 center-text pokemon-text">
-      <p>Evolución: ${pokemonSingle.next_evolution[0].name}</p></div>
+      <div class="detail-container3 center-text pokemon-text">
+      <p class="pokemon-text-four data-text"><strong>Evolución:</strong> ${pokemonSingle.next_evolution[0].name}</p></div>
       `;
       }
+      detailHtml = detailHtml +   `</div>
+        <div class="detail-container3 center-text pokemon-text">
+          <p class="pokemon-text-four data-text"><strong>Debilidades:</strong> ${pokemonSingle.weaknesses}</p>
+        </div>
+      </div>`;
       pokemonDetail.innerHTML = detailHtml;
     });
   }
@@ -277,9 +309,9 @@ typeEgg.addEventListener('change', ()=>{
   let resultEgg = [];
  
   resultEgg = pokemon.contEggs(pokemonData, selectTypeEgg);
-  //let x = filHuevo(pokemonData, selectTypeEgg);
-  textEgg.innerHTML = 'Pokemones que tienen huevos de ' + selectTypeEgg + ' en la region Kanto son  ' + resultEgg + '%';
-  containerPokemon.innerHTML = mostrarPokemon(resultEgg);
- 
+     let x = filHuevo(pokemonData, selectTypeEgg);
+     textEgg.innerHTML = '<div class="data-egg"><h5>Pokemones que aparecen en huevos de <span><img class="egg-icon" src="img/egg.png">' + selectTypeEgg + '</span> en la región Kanto son  <span>' + resultEgg + '%</span> del total.</h5></div>';
+     containerPokemon.innerHTML = mostrarPokemon(x);
+    
   generateModal(pokemonData);
 } );
