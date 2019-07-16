@@ -9,6 +9,7 @@ const example = () => {
 
 window.example = example;
 
+// Funcion para mostrar los pokemones
 const dataPokemon = (data)=>{
   let listPokemon = [];
   for (let i = 0; i < data.length; i++) {
@@ -25,45 +26,23 @@ const dataPokemon = (data)=>{
 
 
 // FUNCIÓN ORDENAR A-Z /Z-A
-const compareSortData = (elemA, elemB) => {
-  if (elemA.name > elemB.name)
-    return 1;
-  if (elemA.name < elemB.name)
-    return -1;
-  return 0;
-};
 
-const sortData = (data, sortBy) => {
-  let sortedData = data.sort(compareSortData);
-  if (sortBy === '1') {
-    return sortedData;
-  } else if (sortBy === '2') {
-    return sortedData.reverse();
+const sortData = (array, condicion) => {
+  let ordered = [];
+  if (condicion === 'az') {
+    ordered = array.sort((first, second) => (first.name > second.name ? 1 : -1));
+  } else if (condicion === 'za') {
+    ordered = array.sort((first, second) => (first.name < second.name ? 1 : -1));
+  } else if (condicion === 'asc') {
+    ordered = array.sort((first, second) => (first.spawn_chance > second.spawn_chance ? 1 : -1));
+  } else {
+    ordered = array.sort((first, second) => (first.spawn_chance < second.spawn_chance ? 1 : -1));
   }
-  return data;
-};
-
-// Función para asc y des
-const compareSortSpawnTime = (elemA, elemB) => {
-  if (elemA.spawn_time < elemB.name)
-    return 1;
-  if (elemA.spawn_time > elemB.name)
-    return -1;
-  return 0;
-};
-
-const sortSpawnTime = (data, sortBy) => {
-  let sortedData = data.sort(compareSortSpawnTime);
-  if (sortBy === '3') {
-    return sortedData;
-  } else if (sortBy === '4') {
-    return sortedData.reverse();
-  }
-  return data;
+  return ordered;
 };
 
 
-// Función de validar
+// Función de validar tipo
 const filterData = (data, condition) => {
   let arrType = [];
   for (let i = 0; i < data.length; i++) {
@@ -94,8 +73,8 @@ const contEggs = (data, tipoEgg)=>{
   let contE = 0;
   let numTypeEgg;
   let porcentajeEgg;
-  data.filter((lisP) =>{
 
+  data.filter((lisP) =>{
     if (lisP.egg === tipoEgg) {
       contE++;
       numTypeEgg = (contE * 100) / data.length;
@@ -122,9 +101,8 @@ window.pokemon = {
   sortData,
   filterData,
   filterDataWeaknesses,
-  compareSortData,
-  sortSpawnTime,
+  //compareSortData,
+  //sortSpawnTime,
   contEggs,
   filHuevo
 };
-

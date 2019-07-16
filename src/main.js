@@ -13,10 +13,10 @@ let close = document.getElementById('close');
 const OrderAz = document.getElementById('OrderAz');
 const ordenarPor = document.getElementById('ordenar-por');
 const typeEgg = document.getElementById('tipo-huevo');
+let textEgg = document.getElementById('text-eggs');
 const footer = document.getElementById('footer-page');
 
 footer.classList.add('hide');
-
 let cont = 0;
 
 close.addEventListener('click', () => {
@@ -106,7 +106,8 @@ const mostrarPokemon = (data) => {
   return showPokemon;
 };
 
-// función mostrar ventana modal con pokemons
+
+// Función mostrar ventana modal con pokemons
 const generateModal = (data) =>{
 
   let divItems = containerPokemon.getElementsByTagName('div');
@@ -135,7 +136,7 @@ const generateModal = (data) =>{
       <div class="pokemon-text center-text"> 
         <h1>${pokemonSingle.name}</h1>
         <span class="pokemon-text-two data-text">N.º ${pokemonSingle.num}</span>
-      </div> 
+      </div>  
       <div class="detail-container">
         <div class="center-text center-text-two">
           <p class="data-number">${pokemonSingle.weight}</p>
@@ -184,15 +185,15 @@ const generateModal = (data) =>{
             <img class="caramel-icon" src="img/candy.png">
             <p class="pokemon-text-second data-number">${pokemonSingle.candy_count}</p>
             <p class="pokemon-text-third data-text">Caramelos</p>
-          </div>
+            </div>
         `;
       }
       detailHtml = detailHtml + `	
-          <div>
-            <p class="pokemon-text-second data-number">${pokemonSingle.egg}</p>
-            <p class="pokemon-text-third data-text">Huevos</p>
-          </div>
-        </div>`;
+      <div>
+      <p class="pokemon-text-second data-number">${pokemonSingle.egg}</p>
+      <p class="pokemon-text-third data-text">Huevos</p>
+      </div>
+    </div>`;
       
       if ( pokemonSingle.next_evolution !== undefined) {
       detailHtml = detailHtml + `
@@ -215,69 +216,102 @@ containerPokemon.innerHTML = mostrarPokemon(pokemonData);
 // detalle de los pokemones
 generateModal(pokemonData);
 
-
-// funcion para ordenar a-z y z-a
-const orderPokemon = document.getElementById('ordenar-por');
-orderPokemon.addEventListener('change', () => {
-  const selectOrder = ordenarPor.value;
-  let pokeResultSort = '';
-  let pokeResultSortSpawn='';
- 
-
-  switch (selectOrder){
-  case '1': 
-    pokeResultSort = pokemon.sortData(pokemonData);
-    containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
-    break;
-  case '2':
-    pokeResultSort = pokemon.sortData(pokemonData);
-    let listZA = pokeResultSort.reverse();	
-    containerPokemon.innerHTML = mostrarPokemon(listZA);
-    break;
-  case '3':
-    pokeResultSortSpawn = pokemon.sortSpawnTime(pokemonData);	
-    containerPokemon.innerHTML = mostrarPokemon(pokeResultSortSpawn);
-    
-  case '4':
-    pokeResultSortSpawn = pokemon.sortSpawnTime(pokemonData);
-    let listDes = pokeResultSortSpawn.reverse();	
-    containerPokemon.innerHTML = mostrarPokemon(listDes);    
-  }
-  generateModal(pokemonData);
-});  
-
-
 // función para filtrar por tipo
+let pokeResultFilter = '';
 const filtrarPokemon = document.getElementById('tipo-pokemones');
 filtrarPokemon.addEventListener('change', () => {
   const selectOrder = filtrarPokemon.value;
-  let pokeResultFilter = '';
+  textEgg.innerHTML='';
   pokeResultFilter = pokemon.filterData(pokemonData, selectOrder);
   containerPokemon.innerHTML = mostrarPokemon(pokeResultFilter);
-
   generateModal(pokemonData);
+  return mostrarPokemon(pokeResultFilter);
 });
+
+
 
 // función para filtrar debilidades
-const filterWeaknesses = document.getElementById('debilidades');
-filterWeaknesses.addEventListener('change', () => {
+/*const filterWeaknesses = document.getElementById('debilidades');
+filterWeaknesses.addEventListener('change', ({newDebilidades}) => {
   const selectOrder = filterWeaknesses.value;
   let pokeResultFilter = '';
+  textEgg.innerHTML='';
   pokeResultFilter = pokemon.filterDataWeaknesses(pokemonData, selectOrder);
   containerPokemon.innerHTML = mostrarPokemon(pokeResultFilter);
-
   generateModal(pokemonData);
+});*/
+
+// Funcion tipo debilida
+
+const filterWeaknesses = document.getElementById('debilidades');
+const newDebi = filterWeaknesses.value;
+const newDeO = filterWeaknesses.value;
+let pokeResultFilter1 = '';
+filterWeaknesses.addEventListener('change', ({newDebi}) => {
+  newDebi = filterWeaknesses.value;
+  let selectOrder1=filtrarPokemon.value;
+  if (selectOrder1==='' ){
+    textEgg.innerHTML='';
+    pokeResultFilter1 = filterDataWeaknesses(pokemonData, newDebi);
+    containerPokemon.innerHTML = mostrarPokemon(pokeResultFilter1);
+    generateModal(pokemonData);
+  }
+  else if (selectOrder1!=''){  
+  pokeResultFilter1 = filterDataWeaknesses((filterData(pokemonData, selectOrder1)), newDebi);
+  containerPokemon.innerHTML = mostrarPokemon(pokeResultFilter1);
+  generateModal(pokemonData);
+  }
+  else {
+
+  }
+  
 });
+
+
+
+// funcion para ordenar a-z y z-a
+const orderPokemon = document.getElementById('ordenar-por');
+let pokeResultSort = '';
+let pokeResultSortSpawn='';
+orderPokemon.addEventListener('change', () => {
+  const selectOrder = ordenarPor.value;
+  textEgg.innerHTML='';
+  let typeP=filtrarPokemon.value;
+  let typeD=filterWeaknesses.value;
+
+
+  if(typeP==='' && typeD===''  ){
+    pokeResultSort=sortData(pokemonData,selectOrder);
+    containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
+  
+  }else if(typeP==='' ){
+    
+    pokeResultSort=sortData(filterDataWeaknesses(pokemonData, typeD),selectOrder);
+    containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
+  }
+  else if(typeD===''){
+    
+    pokeResultSort=sortData(filterData(pokemonData, typeP),selectOrder);
+    containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
+  }
+  else {
+    pokeResultSort=sortData((filterDataWeaknesses((filterData(pokemonData, typeP)), typeD)),selectOrder);
+    containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
+
+  }
+});
+  
+
 
 // Funcion para cacular huevo
 typeEgg.addEventListener('change', ()=>{
   const selectTypeEgg = typeEgg.value;
-  let resultEgg = '';
-  let textEgg = document.getElementById('text-eggs');
-  resultEgg = pokemon.contEggs(pokemonData, selectTypeEgg);
-  let x = filHuevo(pokemonData, selectTypeEgg);
-  textEgg.innerHTML = '<div class="data-egg"><h5>Pokemones que aparecen en huevos de <span><img class="egg-icon" src="img/egg.png">' + selectTypeEgg + '</span> en la región Kanto son  <span>' + resultEgg + '%</span> del total.</h5></div>';
-  containerPokemon.innerHTML = mostrarPokemon(x);
+  let resultEgg = [];
  
+  resultEgg = pokemon.contEggs(pokemonData, selectTypeEgg);
+     let x = filHuevo(pokemonData, selectTypeEgg);
+     textEgg.innerHTML = '<div class="data-egg"><h5>Pokemones que aparecen en huevos de <span><img class="egg-icon" src="img/egg.png">' + selectTypeEgg + '</span> en la región Kanto son  <span>' + resultEgg + '%</span> del total.</h5></div>';
+     containerPokemon.innerHTML = mostrarPokemon(x);
+    
   generateModal(pokemonData);
 } );
