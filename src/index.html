@@ -16,6 +16,7 @@
         <div class="bg-login">
         <div class="view-formulario center">
           <form class="form-login center">
+            <h6>PokeData Go</h6>
             <img class="logo" src="img/poke-data-logo.png" alt="Logo">
             <div class="center">
               <label>Correo electrónico</label>
@@ -44,28 +45,23 @@
             </header>
             <div class="bar">
               <div class="container clearfix">
-                  <div class="logo-menu">
-                    <img src="img/poke-data-logo.png" alt="Logo">
-                  </div>
-                  <div class="menu-movil">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <nav class="nav-principal clearfix">
-                      <a href="https://www.pokemongolive.com/es/events/" target="blank">Eventos</a>
-                      <a href="https://www.youtube.com/watch?time_continue=6&v=HdkWhoBs8BE" target="blank">Ver el tráiler</a>
-                      <a href="a">Cerrar Sesión</a>
-                  </nav>
+                <div class="logo-menu">
+                  <img src="img/poke-data-logo.png" alt="Logo">
+                </div>
+                <input type="checkbox" id="chk">
+                <label for="chk" class="show-menu-btn">
+                  <i class="fas fa-bars"></i>
+                </label>
+                <nav class="nav-principal clearfix">
+                  <a href="https://www.pokemongolive.com/es/events/" target="blank">Eventos</a>
+                  <a href="https://www.youtube.com/watch?time_continue=6&v=HdkWhoBs8BE" target="blank">Ver el tráiler</a>
+                  <a href="#">Cerrar Sesión</a>
+                  <label for="chk" class="hide-menu-btn">
+                    <i class="fas fa-times"></i>
+                  </label>
+                </nav>
               </div>
             </div>
-
-            <!-- 
-            <div class="menu">
-              <i class="fas fa-user-circle"></i>
-              <h5 id="user1">Hola LABORATORIA</h5>
-              <input class="search" type="search" placeholder="Buscar Pokémons">
-            </div> -->
             <div class="container-pokemon">
                 <select id="tipo-pokemones" class="dropdown">
                     <option value="" disabled selected>Tipo</option>
@@ -110,7 +106,7 @@
                     <option value="Flying">Volador</option>
                 </select>
                 <select class="dropdown" id="ordenar-por" >
-                    <option value="" disabled selected>Ordenar por</option>
+                    <option value="" disabled selected>Ordenar</option>
                     <option value="az">A - Z</option>
                     <option value="za">Z - A</option>
                     <option value="asc">Aparece más</option>
@@ -161,8 +157,7 @@
             <li class="brand-three"><a href="#" target="blank"><img alt src="img/nintendo.png"></a></li>
           </ul>
         </div>
-      </div>
-  
+      </div> 
       <p class="copyright">©2019 Niantic, Inc. ©2019 Pokémon. Todos los derechos reservados / Developed by Gladys Dlc Merello & Meliza Sosa Mariño</p>
     </footer>
     <script src="https://kit.fontawesome.com/1d89626b25.js"></script>
