@@ -25,6 +25,37 @@ const dataPokemon = (data)=>{
 };
 
 
+// Funcion para llamar tipos de pokemon
+const selectDeTipos = (data) => {
+  let tipos = [];
+  let cont=0;
+ // let tiposString = [];
+  
+  for(let i = 0; i < data.length; i++){
+   
+    for (let j=0; j<data[i].type.length; j++ ) {
+        tipos[cont]=data[i].type[j];
+        cont ++;
+    }
+
+    }
+    const set = [... new Set(tipos)];
+    //let set2=Object.keys(set);
+    return set;
+};
+
+
+// Funcion para mostrar los tipos de la data
+const obtenerTipoPokemon = (data, type)=>{
+  let listTypePokemon = [];
+  for(let i=0; i <data.length; i++) {
+    for(let j=0; j<data[i].type; j++ )
+    listTypePokemon.push(data[i].type);
+  }
+
+};
+
+
 // FUNCIÓN ORDENAR A-Z /Z-A
 
 const sortData = (array, condicion) => {
@@ -34,9 +65,9 @@ const sortData = (array, condicion) => {
   } else if (condicion === 'za') {
     ordered = array.sort((first, second) => (first.name < second.name ? 1 : -1));
   } else if (condicion === 'asc') {
-    ordered = array.sort((first, second) => (first.spawn_chance > second.spawn_chance ? 1 : -1));
+    ordered = array.sort((first, second) => (first.avg_spawns < second.avg_spawns ? 1 : -1));
   } else {
-    ordered = array.sort((first, second) => (first.spawn_chance < second.spawn_chance ? 1 : -1));
+    ordered = array.sort((first, second) => (first.avg_spawns > second.avg_spawns ? 1 : -1));
   }
   return ordered;
 };
@@ -85,7 +116,7 @@ const contEggs = (data, tipoEgg)=>{
 };
 
 // Funcion para filtrar por tipo de huevo
-const filHuevo = (data,tipoE) =>{
+const filHuevo = (data, tipoE) =>{
   let listMostrarP = [];
   for (let i = 0; i < data.length; i++) {
     if (data[i].egg === tipoE) {
@@ -101,8 +132,7 @@ window.pokemon = {
   sortData,
   filterData,
   filterDataWeaknesses,
-  //compareSortData,
-  //sortSpawnTime,
   contEggs,
-  filHuevo
+  filHuevo,
+  selectDeTipos
 };

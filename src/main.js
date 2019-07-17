@@ -19,6 +19,10 @@ const footer = document.getElementById('footer-page');
 footer.classList.add('hide');
 let cont = 0;
 
+
+
+// Funcion para modal
+
 close.addEventListener('click', () => {
   modal.style.display = 'none';
 });
@@ -114,7 +118,7 @@ const generateModal = (data) =>{
 
   for (let i = 0; i < divItems.length; i++) {
     let divItem = document.getElementById(divItems[i].getAttribute('id'));
-    console.log(divItem);
+    // console.log(divItem);
     divItem.addEventListener('click', () => {
       let pokemonId = parseInt(divItem.getAttribute('id'));
       modal.style.display = 'block';
@@ -177,7 +181,7 @@ const generateModal = (data) =>{
           <p class="data-text">Altura</p>
         </div>
       </div>`;
-         if (pokemonSingle.candy_count !== undefined){
+         if (pokemonSingle.candy_count !== undefined) {
         detailHtml = detailHtml + 		`
         <div class="detail-container2 center-text pokemon-text">
           <div>
@@ -216,17 +220,69 @@ containerPokemon.innerHTML = mostrarPokemon(pokemonData);
 // detalle de los pokemones
 generateModal(pokemonData);
 
+// Funcion para mostrar los tipos
+const selectTipoPokemon = document.getElementById('tipo-pokemones');
+const typePokemon = selectDeTipos(pokemonData);
+console.log(typePokemon);
+
+// funcion para pintar en el combobox
+const pintar = (data, donde) => {
+  let template = `<option disabled="disabled" selected="selected">Tipo</option>`; 
+  for (let i = 0; i < data.length; i++) {
+    console.log(i);
+    template += `<option value="${data[i]}"> ${data[i].toUpperCase()}</option>`;
+  }
+  donde.innerHTML = template;
+};
+
+pintar(typePokemon, selectTipoPokemon);
+
 // función para filtrar por tipo
 let pokeResultFilter = '';
-const filtrarPokemon = document.getElementById('tipo-pokemones');
-filtrarPokemon.addEventListener('change', () => {
-  const selectOrder = filtrarPokemon.value;
+//const filtrarPokemon = document.getElementById('tipo-pokemones');
+selectTipoPokemon.addEventListener('change', () => {
+  const selectOrder = selectTipoPokemon.value;
   textEgg.innerHTML='';
   pokeResultFilter = pokemon.filterData(pokemonData, selectOrder);
   containerPokemon.innerHTML = mostrarPokemon(pokeResultFilter);
   generateModal(pokemonData);
   return mostrarPokemon(pokeResultFilter);
 });
+
+//para llamar 
+
+
+
+/*
+// Funcion para mostrar los tipos
+const selectBrandOptions = document.getElementById('tipo-pokemones');
+const mensajeSalida = document.getElementById('mensaje');
+const tipoP = selectDeTipos(dataPokemon); 
+
+
+ 
+selectBrandOptions.addEventListener('change', (event) => {
+
+  
+const pintarTipos = (p1, p2) => {
+  let template = '<option>Tipo</option>';
+  for (let i = 0; i< p1.length; i++) {
+   template += `<option value=${p1[i]}>${p1[i].toUpperCase()}</option>`
+  }
+  p2.innerHTML = template;
+ }
+
+ pintarTipos(tipoP, selectBrandOptions);
+
+
+  const marcaSeleccionadaPorElUser = event.target.value;
+  const precio = obtenerPrecioPorMarca(dataPokemon, marcaSeleccionadaPorElUser);
+  //console.log(precio);
+  //mensajeSalida.innerHTML = `El precio del ${marcaSeleccionadaPorElUser} es de ${precio}`
+  });
+*/
+ 
+
 
 
 
@@ -280,22 +336,22 @@ orderPokemon.addEventListener('change', () => {
   let typeD=filterWeaknesses.value;
 
 
-  if(typeP==='' && typeD===''  ){
+  if (typeP === '' && typeD === ''  ){
     pokeResultSort=sortData(pokemonData,selectOrder);
     containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
   
-  }else if(typeP==='' ){
+  }else if (typeP ==='' ){
     
     pokeResultSort=sortData(filterDataWeaknesses(pokemonData, typeD),selectOrder);
     containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
   }
-  else if(typeD===''){
+  else if (typeD === ''){
     
-    pokeResultSort=sortData(filterData(pokemonData, typeP),selectOrder);
+    pokeResultSort = sortData(filterData(pokemonData, typeP),selectOrder);
     containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
   }
   else {
-    pokeResultSort=sortData((filterDataWeaknesses((filterData(pokemonData, typeP)), typeD)),selectOrder);
+    pokeResultSort = sortData((filterDataWeaknesses((filterData(pokemonData, typeP)), typeD)),selectOrder);
     containerPokemon.innerHTML = mostrarPokemon(pokeResultSort);
 
   }

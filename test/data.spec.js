@@ -7,22 +7,22 @@ const data = [
   {id: 1, 
     name: 'Bulbasaur', 
     img: 'http://www.serebii.net/pokemongo/pokemon/001.png',
-    type: ['Grass', 'Poison']},
+    type: ['Grass', 'fire'],
+    avg_spawns: 69
+  },
   {id: 2, 
     name: 'Ivysaur', 
     img: 'http://www.serebii.net/pokemongo/pokemon/002.png',
-    type: ['Grass', 'Poison']},
+    type: ['Grass'],
+    avg_spawns: 4.2,
+  },
   {id: 3, 
     name: 'Venusaur', 
     img: 'http://www.serebii.net/pokemongo/pokemon/003.png', 
-    type: ['Grass', 'Poison']}
+    type: ['Grass'],
+    avg_spawns: 1.7}
 ];
 
-const outputOne = [{
-  'name': 'Bulbasaur',
-  'type': ['Grass', 'Poison'],
-  'img': 'http://www.serebii.net/pokemongo/pokemon/001.png'
-}];
 
 // eslint-disable-next-line no-undef
 describe('pokemon', () => {
@@ -30,14 +30,36 @@ describe('pokemon', () => {
     expect(typeof pokemon).toEqual('object') ;
   });
 });
-describe('pokemon.dataPokemon', () => {
+
+describe('Deberia retornar la data de los pokemones', () => {
   it('debería ser una fuction', () => {
     expect(typeof global.pokemon.dataPokemon).toEqual('function') ;
   });
- 
-  it('deberia retornar output para output', () => {
-    expect(global.pokemon.dataPokemon(data)).not.toBe(outputOne);
+});
+
+
+describe('Funcion para verificar el tipo de pokemones', () => {
+  it('debería ser una fuction', () => {
+    expect(typeof global.pokemon.filterData).toEqual('function') ;
+  });
+  it('deberia retornar el tipo de pokemon', () => {
+    expect(global.pokemon.filterData(data, 'Grass')[0].type[0]).toBe('Grass');
   });
 });
 
+describe('Funcion para ordenar los  pokemones', () => {
+  it('debería ser una fuction', () => {
+    expect(typeof global.pokemon.sortData).toEqual('function') ;
+  });
+  it('deberia retornar segun el orden de az los pokemones', () => {
+    expect(global.pokemon.sortData(data, 'az')[0].name).toBe('Bulbasaur');
+  });
+
+  it('deberia retornar segun el orden de za los pokemones', () => {
+    expect(global.pokemon.sortData(data, 'za')[0].name).not.toBe('Bulbasaur');
+  });
+
+  
+
+});
 
