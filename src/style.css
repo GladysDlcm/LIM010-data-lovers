@@ -46,6 +46,11 @@ h5 {
   font-family: 'Lato', sans-serif;
   line-height: 2.5;
 }
+h6 {
+  color: #666666;
+  font-size: 10px;
+  display: none;
+}
 p {
   font-size: 13px;
 }
@@ -122,7 +127,6 @@ strong {
   padding: 16px 63px 40px 62px;
   background-color: #00000085;
   border-radius: 5px;
-  -webkit-box-shadow: 1px 3px 7px 1px rgba(0,0,0,0.73); 
   box-shadow: 1px 3px 7px 1px rgba(0,0,0,0.73);
 }
 .msg-fail {
@@ -139,7 +143,7 @@ text, password
   min-height: 45px;
   line-height: 1.5;
 	margin: 12px 0;
-  border: 0 solid #ffffff;
+  border: 0 solid #f7f7f7;
   background: #FFFFFF;
   color: #333333;
   border-radius: 2px;
@@ -165,7 +169,6 @@ label {
 .bar {
   background-color: #234375; 
   padding: 5px;
-  position: -webkit-sticky; 
   position: sticky;
   top: 0;
 }
@@ -177,7 +180,10 @@ label {
 	width: 60%;
 }
 nav.nav-principal {
-  display: none;
+  line-height: 80px;
+  width: 80%;
+  float: right;
+  text-align: right;
 }
 nav.nav-principal a {
   font-family: 'Lato', sans-serif;
@@ -185,12 +191,11 @@ nav.nav-principal a {
   font-size: 1em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: all .6s ease;
   width: 100%;
-  display: block;
   text-align: center;
-  margin-bottom: 20px;
-  padding: 15px 0;
+  margin: 10px 10px;
+  padding: 20px 20px;
+  transition: 0.4s;
 }
 nav.nav-principal a:hover {
   background-color: #001c4e;
@@ -203,40 +208,31 @@ nav.nav-principal a:last-child {
 nav.nav-principal a:last-child:hover {
   color:#FFFFFF;
 }
-
-/*Menu Movil*/
-.menu-movil {
-  width: 60px;
-  display: block;
-  float: right;
-  text-align: right;
-  margin: 20px;
+.show-menu-btn,.hide-menu-btn{
+  transition: 0.4s;
+  font-size: 30px;
   cursor: pointer;
-  transition: width 2s;
+  display: none;
 }
-.menu-movil span {
-  height: 8px;
-  margin-bottom: 6px;
-  background-color: #FFFFFF;
-  display: block;
-}
-
-nav.nav-principal {
-  clear: both;
-}
-
-.search {
-  width: 20%;
-  height: 60%;
-  padding: 7px 14px;
-  min-height: 45px;
-  outline: transparent;
-  margin: 20px;
-  /*border-radius: 2px;*/
-  border-bottom: 1px solid #ffffff;
+.show-menu-btn{
   float: right;
-  background: #003078;
-  color:#FFFFFF;
+}
+.show-menu-btn i{
+  line-height: 35px;
+  width: 60px;
+  text-align: center;
+  margin: 0px;
+  font-size: 30px;
+}
+.nav-principal a:hover,
+.show-menu-btn:hover,
+.hide-menu-btn:hover{
+  color: #ffffff;
+}
+#chk{
+  position: fixed;
+  visibility: hidden;
+  z-index: -1111;
 }
 ::placeholder {
   color: #FFFFFF;
@@ -262,7 +258,6 @@ select {
   box-sizing: border-box;
   margin: 0;
   box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
-  -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
@@ -273,15 +268,14 @@ select {
   background-size: .65em auto, 100%;
  }
  .dropdown::-ms-expand {
-  display: none;
- }
+  display : none;
+  }
  .dropdown:hover {
   border-color: #888;
  }
  .dropdown:focus {
   border-color: #aaa;
   box-shadow: 0 0 1px 1px rgba(59, 153, 252, .7);
-  box-shadow: 0 0 0 1px -moz-mac-focusring;
   color: #041E4B; 
   outline: none;
  }
@@ -326,16 +320,14 @@ select {
 
 /*Pokemons*/
 .container-pokemon {
-  justify-items: space-between;
   flex-direction: row;
   padding: 40px 0px;
   margin: 0 auto;
   display: flex;
   max-width: 100%;
   width: 1000px;
-  position: -webkit-sticky; 
   position: sticky;
-  top: 51px;
+  top: 50px;
 }
 .pokemons {
   flex-wrap: wrap;
@@ -360,14 +352,12 @@ select {
 .fas {
 	color: #ffffff;
 	font-size: 18px;
-  pointer-events: none;
   flex-direction: row;
 	padding: 20px 0;
 } 
 .fab {
 	color: #ffffff;
 	font-size: 30px;
-  pointer-events: none;
   flex-direction: row;
 	padding: 10px 10px;
 } 
@@ -483,7 +473,7 @@ fa-user-circle {
   display: none;
 }
 .pokemon-text {
-  padding: 0px 20px 0px 20px;
+  padding: 0px 5px;
   margin: auto;
 }
 .pokemon-text-second {
@@ -512,7 +502,7 @@ fa-user-circle {
 }
 .detail-container2 {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   line-height: 10px;
   padding: 0px 0 10px 0;
 }
@@ -597,11 +587,19 @@ p.copyright {
 
 /*Responsive*/
 @media (max-width: 320px) {
+  h1 {
+    line-height: 1.9rem;
+  }
 	.form-login {
     padding: 20px 23px 48px 22px;
   }
   .view-formulario {
     padding: 0;
+  }
+  .logo-menu img {
+    width: 70%;
+    padding: 12px 0;
+    vertical-align: middle;
   }
   .container-modal {
     width: calc(95% - 30px);
@@ -619,7 +617,7 @@ p.copyright {
     margin: 0 0 50px 0;
     padding: 0 0px;
     position: sticky;
-    top: 92px;
+    top: 90px;
   }
   .img-container {
     width: 100%;
@@ -655,6 +653,14 @@ p.copyright {
 }
 
 @media only screen and (min-width: 360px) and (max-width:414px) {
+  h1 {
+    line-height: 1.8rem;
+  }
+  .logo-menu img {
+    width: 65%;
+    padding: 10px 0;
+    vertical-align: middle;
+  }
   .container-modal {
     width: calc(80% - 10px);
   }
@@ -701,33 +707,17 @@ p.copyright {
     margin: 0 0 50px 0;
     padding: 0 0px;
     position: sticky;
-    top: 92px;
+    top: 90px;
   }
   footer .container {
     padding: 0px;
   }
 }
+
 @media only screen and (min-width:768px) {
   .logo-menu {
     width: 20%;
     padding-top: 10px;
-  }
-  nav.nav-principal {
-    width: 80%;
-    float: right;
-    text-align: right;
-    display: block;
-  }
-  nav.nav-principal a{
-    padding: 20px 20px;
-    display: inline-block;
-    width: auto;
-    display: inline-block;
-    text-align: center;
-    margin: 10px 10px;
-  }
-  .menu-movil {
-    display: none;
   }
   .container {
     display: flex;
@@ -739,6 +729,41 @@ p.copyright {
   }
 }
 
+@media only screen and (max-width:760px){
+  .bar {
+    z-index: 1;
+  }
+  nav.nav-principal {
+    position: fixed;
+    width: 60%;
+    height: 100vh;
+    background: #234375;
+    right: -100%;
+    top: 0;
+    text-align: center;
+    padding: 80px 0;
+    line-height: normal;
+    transition: 0.7s;
+  }
+  nav.nav-principal a{
+    display: block;
+    padding: 20px 0;
+    margin: 10px 0px;
+    letter-spacing: 2px;
+  }
+  .show-menu-btn,.hide-menu-btn{
+    display: block;
+    z-index: 100;
+  }
+  .hide-menu-btn{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
+  #chk:checked ~ nav.nav-principal{
+    right: 0;
+  }
+}
 @media only screen and (min-width:480px) {
   .container {
     width: 95%;
