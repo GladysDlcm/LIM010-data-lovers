@@ -211,7 +211,6 @@ const generateModal = (data) =>{
   }
 }
 
-
 containerPokemon.innerHTML = mostrarPokemon(pokemonData);
 // detalle de los pokemones
 generateModal(pokemonData);
