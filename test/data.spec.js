@@ -128,7 +128,7 @@ describe('Funcion para ordenar los  pokemones', () => {
   });
   it('deberia retornar segun el orden de az los pokemones', () => {
     expect(global.pokemon.sortData(varEntrada, 'az')[0].name).toStrictEqual('Bulbasaur');
-  });
+  });ss
 
   it('deberia retornar segun el orden de za los pokemones', () => {
     expect(global.pokemon.sortData(varEntrada, 'za')[0].name).not.toBe('Bulbasaur');
