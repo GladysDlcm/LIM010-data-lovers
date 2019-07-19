@@ -15,6 +15,7 @@ const ordenarPor = document.getElementById('ordenar-por');
 const typeEgg = document.getElementById('tipo-huevo');
 let textEgg = document.getElementById('text-eggs');
 const footer = document.getElementById('footer-page');
+const btnClose = document.getElementById('reset');
 
 footer.classList.add('hide');
 let cont = 0;
@@ -314,3 +315,9 @@ typeEgg.addEventListener('change', ()=>{
     
   generateModal(pokemonData);
 } );
+
+//Boton Cerrar Sesión
+btnClose.addEventListener('click', () => {
+	location.reload(true);
+});
+
