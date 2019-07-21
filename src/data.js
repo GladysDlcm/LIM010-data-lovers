@@ -13,7 +13,6 @@ const dataPokemon = (data)=>{
       num: data[i].num,
       name: data[i].name,
       tipo: data[i].type
-    
     });
   }
   return listPokemon;

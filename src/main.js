@@ -15,6 +15,7 @@ const ordenarPor = document.getElementById('ordenar-por');
 const typeEgg = document.getElementById('tipo-huevo');
 let textEgg = document.getElementById('text-eggs');
 const footer = document.getElementById('footer-page');
+const btnClose = document.getElementById('reset');
 
 footer.classList.add('hide');
 let cont = 0;
@@ -22,15 +23,13 @@ let cont = 0;
 // Funcion para modal
 
 close.addEventListener('click', () => {
-  //modal.style.display = 'none';
-  modal.classList.add('hide');
+  modal.style.display = 'none';
 });
 
 window.addEventListener('click', (event) => {
   console.log(event.target);
   if (event.target === flex) {
-    //modal.style.display = 'none';
-    modal.classList.add('show');
+    modal.style.display = 'none';
   }
 });
 
@@ -66,7 +65,7 @@ buttonLogin.addEventListener('click', (event) => {
   }
 });
 
-// Funcion para mostrar los ppokemones
+// Función para mostrar los pokemones
 const showPokemones = (data) => {
   let showPokemon = '';
   for (let j = 0; j < data.length; j++) {
@@ -119,8 +118,7 @@ const generateModal = (data) => {
     // console.log(divItem);
     divItem.addEventListener('click', () => {
       let pokemonId = parseInt(divItem.getAttribute('id'));
-      //modal.style.display = 'block';
-      modal.classList.add('hide');
+      modal.style.display = 'block';
       let pokemonDetail = document.getElementById('pokemon-detail');
       let detailHtml = '';
       let pokemonSingle = null;
@@ -265,12 +263,12 @@ selectTipoPokemon.addEventListener('change', () => {
 });
 
 
-// Funcion para pintar debilidades
+// Función para pintar debilidades
 const filterWeaknesses = document.getElementById('debilidades');
 const typeWeaknesses = paintWeaknesses(pokemonData);
 console.log(typePokemon);
 
-// Funcion para pintar en el combobox
+// Función para pintar en el combobox
 const paintListWeaknesses = (data, donde) => {
   let template = `<option disable d = 'disabled' selected = 'selected'>Debilidad </option>`; 
   for (let i = 0; i < data.length; i++) {
@@ -282,7 +280,7 @@ const paintListWeaknesses = (data, donde) => {
 paintListWeaknesses(typeWeaknesses, filterWeaknesses);
 
 
-// Funcion filtrar por  debilidad
+// Función filtrar por  debilidad
 let pokeResultFilter1 = '';
 filterWeaknesses.addEventListener('change', () => {
   let newDebi = filterWeaknesses.value;
@@ -338,4 +336,10 @@ typeEgg.addEventListener('change', ()=>{
   containerPokemon.innerHTML = showPokemones(listTypeEgg);
     
   generateModal(pokemonData);
+} );
+
+//Boton Cerrar Sesión
+btnClose.addEventListener('click', () => {
+	location.reload(true);
 });
+
