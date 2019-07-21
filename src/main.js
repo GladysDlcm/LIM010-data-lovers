@@ -224,7 +224,7 @@ console.log(typePokemon);
 
 // Funcion para pintar en el combobox
 const paintListType = (data, donde) => {
-  let template = `<option disabled = 'disabled' selected = 'selected'>Tipo</option>`; 
+  let template = `<option enable selected = 'selected'>Tipos</option>`;
   for (let i = 0; i < data.length; i++) {
     console.log(i);
     template += `<option value="${data[i]}"> ${data[i].toUpperCase()}</option>`;
@@ -238,10 +238,19 @@ let pokeResultFilter = '';
 selectTipoPokemon.addEventListener('change', () => {
   const selectOrder = selectTipoPokemon.value;
   textEgg.innerHTML = '';
-  pokeResultFilter = pokemon.filterType(pokemonData, selectOrder);
-  containerPokemon.innerHTML = showPokemones(pokeResultFilter);
-  generateModal(pokemonData);
-  return showPokemones(pokeResultFilter);
+  let selecctWea=filterWeaknesses.value;
+
+  if(selecctWea ==='Debilidad'){
+    let pokeResultFilter2 = pokemon.filterType(pokemonData, selectOrder);
+    containerPokemon.innerHTML = showPokemones(pokeResultFilter2);
+    generateModal(pokemonData);
+    return showPokemones(pokeResultFilter2);
+    console.log(pokeResultFilter2);
+  } else {
+    pokeResultFilter1 = filterType(filterTypeWeaknesses(pokemonData, selecctWea), selectOrder);
+    containerPokemon.innerHTML = showPokemones(pokeResultFilter1);
+    generateModal(pokemonData); 
+  }
 });
 
 
@@ -252,7 +261,7 @@ console.log(typePokemon);
 
 // Función para pintar en el combobox
 const paintListWeaknesses = (data, donde) => {
-  let template = `<option disable d = 'disabled' selected = 'selected'>Debilidad</option>`; 
+  let template = `<option disable d = 'disabled' selected = 'selected'>Debilidad </option>`; 
   for (let i = 0; i < data.length; i++) {
     console.log(i);
     template += `<option value="${data[i]}"> ${data[i].toUpperCase()}</option>`;
@@ -270,7 +279,7 @@ filterWeaknesses.addEventListener('change', () => {
   console.log(newDebi);
   console.log(selectOrder1);
 
-  if (selectOrder1 === 'Tipo') {
+  if (selectOrder1 === 'Tipos') {
     textEgg.innerHTML = '';
     pokeResultFilter1 = filterTypeWeaknesses(pokemonData, newDebi);
     containerPokemon.innerHTML = showPokemones(pokeResultFilter1);
