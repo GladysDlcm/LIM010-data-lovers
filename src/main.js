@@ -235,15 +235,6 @@ paintListType(typePokemon, selectTipoPokemon);
 
 // Función para filtrar por tipo
 let pokeResultFilter = '';
-/*selectTipoPokemon.addEventListener('change', () => {
-  const selectOrder = selectTipoPokemon.value;
-  textEgg.innerHTML = '';
-  pokeResultFilter = pokemon.filterType(pokemonData, selectOrder);
-  containerPokemon.innerHTML = showPokemones(pokeResultFilter);
-  generateModal(pokemonData);
-  return showPokemones(pokeResultFilter);
-});*/
-
 selectTipoPokemon.addEventListener('change', () => {
   const selectOrder = selectTipoPokemon.value;
   textEgg.innerHTML = '';
