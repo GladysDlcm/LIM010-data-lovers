@@ -98,8 +98,7 @@ const showPokemones = (data) => {
       case 'Flying' : imageFile = 'flying.png'; break;          
       }
       showP = showP + 
-              `<img class="type-icon-main" src="img/${imageFile}">
-                <p class="data-text-main">${data[j].type[i]}</p>`;
+              `<img class="type-icon-main" src="img/${imageFile}">`;
     }
     showP = showP + `
       </div>`;
@@ -126,7 +125,7 @@ const generateModal = (data) => {
       for (let j = 0; j < data.length; j++) {
         if (data[j].id === pokemonId) {
           pokemonSingle = data[j];
-        } else { }
+        }
       }
   
       // Modal detalle
