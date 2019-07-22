@@ -237,16 +237,15 @@ let pokeResultFilter = '';
 selectTipoPokemon.addEventListener('change', () => {
   const selectOrder = selectTipoPokemon.value;
   textEgg.innerHTML = '';
-  let selecctWea=filterWeaknesses.value;
+  const selectWeak = filterWeaknesses.value;
 
-  if(selecctWea ==='Debilidad'){
+  if (selectWeak === 'Debilidad') {
     let pokeResultFilter2 = pokemon.filterType(pokemonData, selectOrder);
     containerPokemon.innerHTML = showPokemones(pokeResultFilter2);
     generateModal(pokemonData);
-    return showPokemones(pokeResultFilter2);
     console.log(pokeResultFilter2);
   } else {
-    pokeResultFilter1 = filterType(filterTypeWeaknesses(pokemonData, selecctWea), selectOrder);
+    pokeResultFilter1 = filterType(filterTypeWeaknesses(pokemonData, selectWeak), selectOrder);
     containerPokemon.innerHTML = showPokemones(pokeResultFilter1);
     generateModal(pokemonData); 
   }
@@ -260,7 +259,7 @@ console.log(typePokemon);
 
 // Función para pintar en el combobox
 const paintListWeaknesses = (data, donde) => {
-  let template = `<option disable d = 'disabled' selected = 'selected'>Debilidad </option>`; 
+  let template = `<option disable d = 'disabled' selected = 'selected'>Debilidad</option>`; 
   for (let i = 0; i < data.length; i++) {
     console.log(i);
     template += `<option value="${data[i]}"> ${data[i].toUpperCase()}</option>`;
@@ -299,10 +298,10 @@ orderPokemon.addEventListener('change', () => {
   textEgg.innerHTML = '';
   let typeP = selectTipoPokemon.value;
   let typeD = filterWeaknesses.value;
-  if (typeP === 'Tipo' && typeD === 'Debilidad') {
+  if (typeP === 'Tipos' && typeD === 'Debilidad') {
     pokeResultSort = sortData(pokemonData, selectOrder);
     containerPokemon.innerHTML = showPokemones(pokeResultSort);
-  } else if (typeP === 'Tipo') { 
+  } else if (typeP === 'Tipos') { 
     pokeResultSort = sortData(filterTypeWeaknesses(pokemonData, typeD), selectOrder);
     containerPokemon.innerHTML = showPokemones(pokeResultSort);
   } else if (typeD === 'Debilidad') {
@@ -320,13 +319,13 @@ typeEgg.addEventListener('change', ()=>{
   const selectTypeEgg = typeEgg.value;
   let resultEgg = [];
  
-  resultEgg = pokemon.percentageEggs(pokemonData, selectTypeEgg);
+  resultEgg = percentageEggs(pokemonData, selectTypeEgg);
   let listTypeEgg = filterTypeEgg(pokemonData, selectTypeEgg);
   textEgg.innerHTML = '<div class="data-egg"><h5>Pokemones que aparecen en huevos de <span><img class="egg-icon" src="img/egg.png">' + selectTypeEgg + '</span> en la región Kanto son  <span>' + resultEgg + '%</span> del total.</h5></div>';
   containerPokemon.innerHTML = showPokemones(listTypeEgg);
     
   generateModal(pokemonData);
-} );
+});
 
 //Boton Cerrar Sesión
 btnClose.addEventListener('click', () => {
