@@ -19,7 +19,9 @@ const varEntrada = [{
   'spawn_time': '20:00',
   'multipliers': [1.58],
   'weaknesses': ['Fire', 'Ice', 'Flying', 'Psychic'],
-  'next_evolution': [{'num': '002', 'name': 'Ivysaur'}, {'num': '003', 'name': 'Venusaur'}]
+  'next_evolution': [{'num': '002',
+    'name': 'Ivysaur'}, {'num': '003',
+    'name': 'Venusaur'}]
 }, {
   'id': 2,
   'num': '002',
@@ -36,8 +38,10 @@ const varEntrada = [{
   'spawn_time': '07:00',
   'multipliers': [1.2, 1.6],
   'weaknesses': ['Fire', 'Ice', 'Flying', 'Psychic'],
-  'prev_evolution': [{'num': '001', 'name': 'Bulbasaur' }],
-  'next_evolution': [{'num': '003', 'nam': 'Venusaur'}]
+  'prev_evolution': [{'num': '001',
+    'name': 'Bulbasaur' }],
+  'next_evolution': [{'num': '003',
+    'nam': 'Venusaur'}]
 }, {
   'id': 3,
   'num': '003',
@@ -53,7 +57,9 @@ const varEntrada = [{
   'spawn_time': '11:30',
   'multipliers': null,
   'weaknesses': ['Fire', 'Ice', 'Flying', 'Psychic'],
-  'prev_evolution': [{'num': '001', 'name': 'Bulbasaur'}, {'num': '002', 'name': 'Ivysaur'}]
+  'prev_evolution': [{'num': '001',
+    'name': 'Bulbasaur'}, {'num': '002',
+    'name': 'Ivysaur'}]
 }];
 
 const varSalida = [{ 
@@ -73,14 +79,14 @@ const varOrdenadoAZ = [{
   name: 'Ivysaur',
   img: 'http://www.serebii.net/pokemongo/pokemon/002.png',
   tipo: ['Grass', 'Poison'],
-  }, {
+}, {
   num: '003',
   name: 'Venusaur',
   img: 'http://www.serebii.net/pokemongo/pokemon/003.png',
   tipo: ['Grass', 'Poison'],
 }];
 
-const typeEgg='2 km';
+const typeEgg = '2 km';
     
     
 // eslint-disable-next-line no-undef
@@ -128,7 +134,7 @@ describe('Funcion para ordenar los  pokemones', () => {
   });
   it('deberia retornar segun el orden de az los pokemones', () => {
     expect(global.pokemon.sortData(varEntrada, 'az')[0].name).toStrictEqual('Bulbasaur');
-  });ss
+  });
 
   it('deberia retornar segun el orden de za los pokemones', () => {
     expect(global.pokemon.sortData(varEntrada, 'za')[0].name).not.toBe('Bulbasaur');
@@ -160,7 +166,7 @@ describe('Funcion para filtrar por debilidades de pokemones', () => {
     expect(Array.isArray(global.pokemon.filterTypeWeaknesses(varEntrada))).toBe(true);
   });
   it('deberia retornar el tipo de pokemon', () => {
-    expect(global.pokemon.filterTypeWeaknesses(varEntrada,'Fire')[1].weaknesses[0]).toBe('Fire');
+    expect(global.pokemon.filterTypeWeaknesses(varEntrada, 'Fire')[1].weaknesses[0]).toBe('Fire');
   });
 });
 
