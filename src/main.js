@@ -4,16 +4,16 @@ const user = document.getElementById('user');
 const password = document.getElementById('password');
 const msgFail = document.getElementById('msg-fail');
 const viewPokemon = document.getElementById('view-pokemon');
-const viewLogin1 = document.getElementById('view-login');
+const viewLogin = document.getElementById('view-login');
 const containerPokemon = document.getElementById('container-pokemon');
 const pokemonData = POKEMON.pokemon;
-let modal = document.getElementById('poke-modal');
-let flex = document.getElementById('flex');
-let close = document.getElementById('close');
-const OrderAz = document.getElementById('OrderAz');
-const ordenarPor = document.getElementById('ordenar-por');
-const typeEgg = document.getElementById('tipo-huevo');
-let textEgg = document.getElementById('text-eggs');
+const modal = document.getElementById('poke-modal');
+const flex = document.getElementById('flex');
+const close = document.getElementById('close');
+//const OrderAz = document.getElementById('OrderAz');
+const ordenarPor = document.getElementById('order-by');
+const typeEgg = document.getElementById('order-type-egg');
+let textEgg = document.getElementById('percent-eggs');
 const footer = document.getElementById('footer-page');
 const btnClose = document.getElementById('reset');
 
@@ -45,7 +45,7 @@ buttonLogin.addEventListener('click', (event) => {
 
   if (userLogin === 'LABORATORIA' && passwordLogin === 'LABORATORIA') {
     viewPokemon.classList.add('show');
-    viewLogin1.classList.add('hide');
+    viewLogin.classList.add('hide');
     footer.classList.add('show');
     cont = 0;
   }	else if (cont >= 2) {
@@ -98,7 +98,8 @@ const showPokemones = (data) => {
       case 'Flying' : imageFile = 'flying.png'; break;          
       }
       showP = showP + 
-              `<img class="type-icon-main" src="img/${imageFile}">`;
+              `<img class="type-icon-main" src="img/${imageFile}">
+              <p class="data-text-main">${data[j].type[i]}</p>`;
     }
     showP = showP + `
       </div>`;
@@ -217,7 +218,7 @@ containerPokemon.innerHTML = showPokemones(pokemonData);
 generateModal(pokemonData);
 
 // Funcion para mostrar los tipos
-const selectTipoPokemon = document.getElementById('tipo-pokemones');
+const selectTipoPokemon = document.getElementById('type-pokemons');
 const typePokemon = paintType(pokemonData);
 console.log(typePokemon);
 
@@ -290,7 +291,7 @@ filterWeaknesses.addEventListener('change', () => {
 });
 
 // funcion para ordenar a-z y z-a
-const orderPokemon = document.getElementById('ordenar-por');
+const orderPokemon = document.getElementById('order-by');
 let pokeResultSort = '';
 let pokeResultSortSpawn = '';
 orderPokemon.addEventListener('change', () => {

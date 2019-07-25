@@ -14,15 +14,15 @@
     <main>
       <section id="view-login">
         <div class="bg-login">
-        <div class="view-formulario center">
+        <div class="view-form center">
           <form class="form-login center">
             <h6>PokeData Go</h6>
             <img class="logo" src="img/poke-data-logo.png" alt="Logo">
             <div class="center">
               <label>Correo electrónico</label>
-                <input type="text" id="user" value=""/>
+                <input type="text" id="user" value="LABORATORIA"/>
                 <label>Contraseña</label>
-                <input type="password" id="password" value=""/>
+                <input type="password" id="password" value="LABORATORIA"/>
                 <p id="msg-fail" class="msg-fail"></p>
                 <a class="btn-link1">¿Olvidaste tu contraseña?</a>
             </div>
@@ -63,12 +63,12 @@
               </div>
             </div>
             <div class="container-pokemon">
-                <select id="tipo-pokemones" class="dropdown">
+                <select id="type-pokemons" class="dropdown">
                   <!--<option disabled selected>Todos</option>-->
                   </select>
                 <select id="debilidades" class="dropdown" >
                   </select>
-                <select class="dropdown" id="ordenar-por" >
+                <select class="dropdown" id="order-by" >
                     <option value="" disabled selected>Ordenar</option>
                     <option value="az">A - Z</option>
                     <option value="za">Z - A</option>
@@ -76,7 +76,7 @@
                     <option value="des">Aparece menos</option>
                 </select>
 
-                <select class="dropdown" id="tipo-huevo">
+                <select class="dropdown" id="order-type-egg">
                     <option value="" disabled selected>Huevos</option>
                     <option value="Not in Eggs">No tiene Huevos</option>
                     <option value="2 km">2 KM</option>
@@ -85,7 +85,7 @@
                 </select>
             </div>
             <div>
-              <p id="text-eggs"></p>
+              <p id="percent-eggs"></p>
             </div>
             <div id="container-pokemon" class="pokemons"></div>
             <div id="poke-modal" class="modal">
@@ -115,9 +115,9 @@
         </div>
         <div>
           <ul class="brand">
-            <li class="brand-one"><a href="#" target="blank"><img alt src="img/niantic.png"></a></li>
-            <li class="brand-two"><a href="#" target="blank"><img alt src="img/tpc.png"></a></li>
-            <li class="brand-three"><a href="#" target="blank"><img alt src="img/nintendo.png"></a></li>
+            <li class="brand-niantic"><a href="#" target="blank"><img alt src="img/niantic.png"></a></li>
+            <li class="brand-tpc"><a href="#" target="blank"><img alt src="img/tpc.png"></a></li>
+            <li class="brand-nintendo"><a href="#" target="blank"><img alt src="img/nintendo.png"></a></li>
           </ul>
         </div>
       </div> 

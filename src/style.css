@@ -109,7 +109,7 @@ strong {
 }
 
 /*Login*/
-.view-formulario {
+.view-form {
     display: block;
 	  margin: 0px auto;
     max-width: 460px;
@@ -557,17 +557,17 @@ ul.brand {
   margin: 0;
   padding: 0;
 }
-li.brand-one {
+li.brand-niantic {
   width: 50px;
   margin: 0 20px 0 0;
   display: inline-block;
 }
-li.brand-two {
+li.brand-tpc {
   width: 155px;
   margin: 0 20px 0 0;
   display: inline-block;
 }
-li.brand-three {
+li.brand-nintendo {
   width: 106px;
   margin: 0 20px 0 0;
   display: inline-block;
@@ -593,7 +593,7 @@ p.copyright {
 	.form-login {
     padding: 20px 23px 48px 22px;
   }
-  .view-formulario {
+  .view-form {
     padding: 0;
   }
   .logo-menu img {
